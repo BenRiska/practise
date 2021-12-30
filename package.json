@@ -3,20 +3,66 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "lint-all": "eslint src/**/*.{ts,tsx} --fix",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^1.0.0",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
+    "@mui/icons-material": "^5.2.4",
+    "@mui/material": "^5.2.4",
+    "@prisma/client": "^2.25.0",
+    "@sentry/nextjs": "^6.15.0",
+    "@sentry/node": "5.20.0",
+    "@slack/webhook": "^5.0.3",
+    "aws-sdk": "^2.709.0",
+    "axios": "^0.19.2",
+    "csv-writer": "^1.6.0",
+    "framer-motion": "^5.5.5",
+    "googleapis": "^39.2.0",
+    "jssha": "^3.2.0",
+    "moment": "^2.26.0",
     "next": "12.0.7",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "title": "^3.4.3"
   },
   "devDependencies": {
+    "@ember/eslint-config-ember": "https://github.com/ember-digital/eslint-config.git",
     "@types/node": "16.11.12",
     "@types/react": "17.0.37",
+    "@types/title": "^3.4.1",
+    "@typescript-eslint/eslint-plugin": "^4.28.2",
+    "@typescript-eslint/parser": "^4.28.2",
+    "autoprefixer": "^10.4.0",
     "eslint": "8.4.1",
     "eslint-config-next": "12.0.7",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-sonarjs": "^0.9.1",
+    "lint-staged": "^11.0.0",
+    "postcss": "^8.4.4",
+    "prettier": "^2.3.2",
+    "prisma": "^2.25.0",
+    "tailwindcss": "^3.0.0",
     "typescript": "4.5.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn typecheck; yarn lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": [
+      "eslint --fix",
+      "git add"
+    ]
   }
 }

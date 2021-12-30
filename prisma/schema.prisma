@@ -1,0 +1,171 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["selectRelationCount"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Company {
+  companyName             String            @unique
+  companyNumber           String            @unique
+  createdAt               DateTime          @default(now())
+  id                      Int               @id @default(autoincrement())
+  industries              String[]
+  refetch                 Boolean           @default(false)
+  addressId               Int?
+  subscriptionStatus      CompanyStatus?
+  attributionCampaign     String?
+  attributionMedium       String?
+  attributionSource       String?
+  isAddressUnique         Boolean?
+  grade                   CompanyGrade?
+  initialSubscriptionDate DateTime?
+  registeredAddress       Address?          @relation(fields: [addressId], references: [id])
+  campaigns               CompanyCampaign[]
+  directors               Director[]
+}
+
+model Address {
+  id           Int       @id @default(autoincrement())
+  createdAt    DateTime  @default(now())
+  sourceId     String    @unique
+  addressLine1 String?
+  addressLine2 String?
+  country      String?
+  postalCode   String?
+  locality     String?
+  companies    Company[]
+}
+
+model Agent {
+  id                      Int        @id @default(autoincrement())
+  createdAt               DateTime   @default(now())
+  name                    String?
+  email                   String?
+  duxSoupUrl              String?
+  duxSoupId               String?
+  phantomBusterId         String?
+  phantomBusterSessionKey String?
+  phantomBusterUrl        String?
+  currentlyScanning       Boolean    @default(false)
+  isAvailable             Boolean    @default(false)
+  contacts                Director[]
+}
+
+model Director {
+  id            Int                  @id @default(autoincrement())
+  createdAt     DateTime             @default(now())
+  dateOfBirth   DateTime?
+  firstName     String?
+  lastName      String?
+  linkedinId    String?              @unique
+  linkedinMatch LinkedinMatchStatus?
+  agentId       Int?
+  contactEmail  String?
+  viewed        Boolean?
+  contactOwner  Agent?               @relation(fields: [agentId], references: [id])
+  companies     Company[]
+}
+
+model Campaign {
+  id               Int               @id @default(autoincrement())
+  name             String?           @unique
+  createdAt        DateTime          @default(now())
+  template         String?
+  type             CampaignType      @default(DIRECT_MAIL)
+  status           CampaignState     @default(READY)
+  campaignCost     Float?
+  industries       String[]
+  duration         CampaignDuration?
+  isStannpCampaign Boolean?
+  companyCampaigns CompanyCampaign[]
+}
+
+model CompanyCampaign {
+  id         Int            @id @default(autoincrement())
+  createdAt  DateTime       @default(now())
+  companyId  Int?
+  campaignId Int?
+  status     CampaignStatus @default(QUEUED)
+  campaign   Campaign?      @relation(fields: [campaignId], references: [id])
+  company    Company?       @relation(fields: [companyId], references: [id])
+}
+
+model Services {
+  id       Int           @id @default(autoincrement())
+  service  Service
+  status   ServiceStatus @default(UP)
+  lastDown DateTime?
+  pings    Ping[]
+}
+
+model Ping {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  serviceId Int
+  service   Services @relation(fields: [serviceId], references: [id])
+}
+
+enum Service {
+  COMPANIES_HOUSE
+  STANNP
+  CLICKSEND
+  PHANTOMBUSTER
+  DUX_SOUP
+  LEMLIST
+  CRON
+}
+
+enum ServiceStatus {
+  UP
+  DOWN
+}
+
+enum LinkedinMatchStatus {
+  NO_MATCH
+  EXACT_MATCH
+  MULTIPLE_PROFILES
+  NO_LOCALITY
+  CONNECTION_SENT
+  RESPONDED
+}
+
+enum CampaignStatus {
+  QUEUED
+  SENT
+}
+
+enum CampaignState {
+  READY
+  ONGOING
+  COMPLETE
+}
+
+enum CampaignDuration {
+  ONGOING
+  IMMEDIATE
+}
+
+enum CampaignType {
+  DIRECT_MAIL
+  LEMLIST
+}
+
+enum CompanyStatus {
+  ACTIVE
+  TRIALING
+  CHURNED
+  ONBOARDING
+  FAILED_TO_ONBOARD
+  CHURNED_AFTER_TRIAL
+  PAST_DUE
+}
+
+enum CompanyGrade {
+  A
+  B
+  SCREEN
+}
