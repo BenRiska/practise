@@ -51,7 +51,10 @@ const Sidebar = ({menuOpen, setMenuOpen, logout}: any) => {
                   <PersonSearchIcon/>
                   <p className="text-gray-700">Leads</p>
                 </div>
-                <div className="sidebar-link flex space-x-4 items-center py-4 pl-8 pr-4">
+                <div onClick={() => {
+                  replace("/campaigns") 
+                  setMenuOpen(false)
+                }} className="sidebar-link flex space-x-4 items-center py-4 pl-8 pr-4">
                   <CampaignIcon/>
                   <p className="text-gray-700">Campaigns</p>
                 </div>
