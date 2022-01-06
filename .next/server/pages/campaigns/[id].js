@@ -1,0 +1,116 @@
+"use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+(() => {
+var exports = {};
+exports.id = "pages/campaigns/[id]";
+exports.ids = ["pages/campaigns/[id]"];
+exports.modules = {
+
+/***/ "./components/CampaignMenu.tsx":
+/*!*************************************!*\
+  !*** ./components/CampaignMenu.tsx ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ \"react/jsx-runtime\");\n/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _mui_icons_material_UploadFile__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @mui/icons-material/UploadFile */ \"@mui/icons-material/UploadFile\");\n/* harmony import */ var _mui_icons_material_UploadFile__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_mui_icons_material_UploadFile__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _mui_icons_material_Groups__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/icons-material/Groups */ \"@mui/icons-material/Groups\");\n/* harmony import */ var _mui_icons_material_Groups__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_mui_icons_material_Groups__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\nconst CampaignMenu = ({ campaign  })=>{\n    return(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(\"div\", {\n        className: \"p-8 max-w-7xl mx-auto\",\n        __source: {\n            fileName: \"/Users/ben/Desktop/ssgm/components/CampaignMenu.tsx\",\n            lineNumber: 5,\n            columnNumber: 10\n        },\n        __self: undefined,\n        children: [\n            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(\"div\", {\n                className: \"flex justify-between\",\n                __source: {\n                    fileName: \"/Users/ben/Desktop/ssgm/components/CampaignMenu.tsx\",\n                    lineNumber: 6,\n                    columnNumber: 13\n                },\n                __self: undefined,\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(\"div\", {\n                        className: \"flex shadow px-4 py-3 rounded-lg space-x-2 items-center cursor-pointer\",\n                        __source: {\n                            fileName: \"/Users/ben/Desktop/ssgm/components/CampaignMenu.tsx\",\n                            lineNumber: 7,\n                            columnNumber: 15\n                        },\n                        __self: undefined,\n                        children: [\n                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)((_mui_icons_material_Groups__WEBPACK_IMPORTED_MODULE_2___default()), {\n                                __source: {\n                                    fileName: \"/Users/ben/Desktop/ssgm/components/CampaignMenu.tsx\",\n                                    lineNumber: 8,\n                                    columnNumber: 17\n                                },\n                                __self: undefined\n                            }),\n                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(\"p\", {\n                                __source: {\n                                    fileName: \"/Users/ben/Desktop/ssgm/components/CampaignMenu.tsx\",\n                                    lineNumber: 9,\n                                    columnNumber: 17\n                                },\n                                __self: undefined,\n                                children: campaign === null || campaign === void 0 ? void 0 : campaign.companyCampaigns.length\n                            })\n                        ]\n                    }),\n                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(\"div\", {\n                        className: \"flex items-center\",\n                        __source: {\n                            fileName: \"/Users/ben/Desktop/ssgm/components/CampaignMenu.tsx\",\n                            lineNumber: 11,\n                            columnNumber: 15\n                        },\n                        __self: undefined,\n                        children: [\n                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(\"a\", {\n                                href: `https://pdf.ember.co/api/pdf?letter_template=${campaign === null || campaign === void 0 ? void 0 : campaign.template}`,\n                                target: \"_blank\",\n                                className: \"px-4 py-3.5 rounded-lg shadow cursor-pointer\",\n                                __source: {\n                                    fileName: \"/Users/ben/Desktop/ssgm/components/CampaignMenu.tsx\",\n                                    lineNumber: 12,\n                                    columnNumber: 17\n                                },\n                                __self: undefined,\n                                children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)((_mui_icons_material_UploadFile__WEBPACK_IMPORTED_MODULE_1___default()), {\n                                    __source: {\n                                        fileName: \"/Users/ben/Desktop/ssgm/components/CampaignMenu.tsx\",\n                                        lineNumber: 13,\n                                        columnNumber: 19\n                                    },\n                                    __self: undefined\n                                })\n                            }),\n                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(\"div\", {\n                                __source: {\n                                    fileName: \"/Users/ben/Desktop/ssgm/components/CampaignMenu.tsx\",\n                                    lineNumber: 15,\n                                    columnNumber: 17\n                                },\n                                __self: undefined,\n                                children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(\"p\", {\n                                    className: \"bg-green-100 px-4 py-3 rounded-lg ml-4 shadow\",\n                                    __source: {\n                                        fileName: \"/Users/ben/Desktop/ssgm/components/CampaignMenu.tsx\",\n                                        lineNumber: 16,\n                                        columnNumber: 19\n                                    },\n                                    __self: undefined,\n                                    children: campaign === null || campaign === void 0 ? void 0 : campaign.status\n                                })\n                            })\n                        ]\n                    })\n                ]\n            }),\n            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(\"div\", {\n                className: \"mt-8\",\n                __source: {\n                    fileName: \"/Users/ben/Desktop/ssgm/components/CampaignMenu.tsx\",\n                    lineNumber: 20,\n                    columnNumber: 13\n                },\n                __self: undefined,\n                children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(\"h1\", {\n                    className: \"text-5xl\",\n                    __source: {\n                        fileName: \"/Users/ben/Desktop/ssgm/components/CampaignMenu.tsx\",\n                        lineNumber: 21,\n                        columnNumber: 17\n                    },\n                    __self: undefined,\n                    children: campaign === null || campaign === void 0 ? void 0 : campaign.name\n                })\n            })\n        ]\n    }));\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CampaignMenu);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9jb21wb25lbnRzL0NhbXBhaWduTWVudS50c3guanMiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7QUFBMkQ7QUFDUjtBQUVuRCxLQUFLLENBQUNFLFlBQVksSUFBSSxDQUFDQyxDQUFBQSxRQUFRLEVBQUssQ0FBQyxHQUFLLENBQUM7SUFDekMsTUFBTSx1RUFBRUMsQ0FBRztRQUFDQyxTQUFTLEVBQUMsQ0FBdUI7Ozs7Ozs7O2tGQUNsQ0QsQ0FBRztnQkFBQ0MsU0FBUyxFQUFDLENBQXNCOzs7Ozs7OzswRkFDbENELENBQUc7d0JBQUNDLFNBQVMsRUFBQyxDQUF3RTs7Ozs7Ozs7aUdBQ3BGSixtRUFBVTs7Ozs7Ozs7aUdBQ1ZLLENBQUM7Ozs7Ozs7MENBQUVILFFBQVEsYUFBUkEsUUFBUSxLQUFSQSxJQUFJLENBQUpBLENBQTBCLEdBQTFCQSxJQUFJLENBQUpBLENBQTBCLEdBQTFCQSxRQUFRLENBQUVJLGdCQUFnQixDQUFDQyxNQUFNOzs7OzBGQUV0Q0osQ0FBRzt3QkFBQ0MsU0FBUyxFQUFDLENBQW1COzs7Ozs7OztpR0FDL0JJLENBQUM7Z0NBQUNDLElBQUksR0FBRyw2Q0FBNkMsRUFBRVAsUUFBUSxhQUFSQSxRQUFRLEtBQVJBLElBQUksQ0FBSkEsQ0FBa0IsR0FBbEJBLElBQUksQ0FBSkEsQ0FBa0IsR0FBbEJBLFFBQVEsQ0FBRVEsUUFBUTtnQ0FBSUMsTUFBTSxFQUFFLENBQVE7Z0NBQUVQLFNBQVMsRUFBQyxDQUE4Qzs7Ozs7OzsrR0FDdEpMLHVFQUFjOzs7Ozs7Ozs7aUdBRWhCSSxDQUFHOzs7Ozs7OytHQUNERSxDQUFDO29DQUFDRCxTQUFTLEVBQUMsQ0FBK0M7Ozs7Ozs7OENBQUVGLFFBQVEsYUFBUkEsUUFBUSxLQUFSQSxJQUFJLENBQUpBLENBQWdCLEdBQWhCQSxJQUFJLENBQUpBLENBQWdCLEdBQWhCQSxRQUFRLENBQUVVLE1BQU07Ozs7Ozs7aUZBSW5GVCxDQUFHO2dCQUFDQyxTQUFTLEVBQUMsQ0FBTTs7Ozs7OzsrRkFDaEJTLENBQUU7b0JBQUNULFNBQVMsRUFBQyxDQUFVOzs7Ozs7OzhCQUFFRixRQUFRLGFBQVJBLFFBQVEsS0FBUkEsSUFBSSxDQUFKQSxDQUFjLEdBQWRBLElBQUksQ0FBSkEsQ0FBYyxHQUFkQSxRQUFRLENBQUVZLElBQUk7Ozs7O0FBR3hELENBQUM7QUFFRCxpRUFBZWIsWUFBWSxFQUFDIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vc3NnbS8uL2NvbXBvbmVudHMvQ2FtcGFpZ25NZW51LnRzeD83ZmM4Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBVcGxvYWRGaWxlSWNvbiBmcm9tICdAbXVpL2ljb25zLW1hdGVyaWFsL1VwbG9hZEZpbGUnO1xuaW1wb3J0IEdyb3Vwc0ljb24gZnJvbSAnQG11aS9pY29ucy1tYXRlcmlhbC9Hcm91cHMnO1xuXG5jb25zdCBDYW1wYWlnbk1lbnUgPSAoe2NhbXBhaWdufTogYW55KSA9PiB7XG4gIHJldHVybiA8ZGl2IGNsYXNzTmFtZT0ncC04IG1heC13LTd4bCBteC1hdXRvJz5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBqdXN0aWZ5LWJldHdlZW5cIj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9J2ZsZXggc2hhZG93IHB4LTQgcHktMyByb3VuZGVkLWxnIHNwYWNlLXgtMiBpdGVtcy1jZW50ZXIgY3Vyc29yLXBvaW50ZXInPlxuICAgICAgICAgICAgICAgIDxHcm91cHNJY29uLz5cbiAgICAgICAgICAgICAgICA8cD57Y2FtcGFpZ24/LmNvbXBhbnlDYW1wYWlnbnMubGVuZ3RofTwvcD5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPSdmbGV4IGl0ZW1zLWNlbnRlcic+XG4gICAgICAgICAgICAgICAgPGEgaHJlZj17YGh0dHBzOi8vcGRmLmVtYmVyLmNvL2FwaS9wZGY/bGV0dGVyX3RlbXBsYXRlPSR7Y2FtcGFpZ24/LnRlbXBsYXRlfWB9IHRhcmdldD17XCJfYmxhbmtcIn0gY2xhc3NOYW1lPVwicHgtNCBweS0zLjUgcm91bmRlZC1sZyBzaGFkb3cgY3Vyc29yLXBvaW50ZXJcIj5cbiAgICAgICAgICAgICAgICAgIDxVcGxvYWRGaWxlSWNvbi8+XG4gICAgICAgICAgICAgICAgPC9hPlxuICAgICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9J2JnLWdyZWVuLTEwMCBweC00IHB5LTMgcm91bmRlZC1sZyBtbC00IHNoYWRvdyc+e2NhbXBhaWduPy5zdGF0dXN9PC9wPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9J210LTgnPlxuICAgICAgICAgICAgICAgIDxoMSBjbGFzc05hbWU9J3RleHQtNXhsJz57Y2FtcGFpZ24/Lm5hbWV9PC9oMT5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgPC9kaXY+XG59XG5cbmV4cG9ydCBkZWZhdWx0IENhbXBhaWduTWVudTsiXSwibmFtZXMiOlsiVXBsb2FkRmlsZUljb24iLCJHcm91cHNJY29uIiwiQ2FtcGFpZ25NZW51IiwiY2FtcGFpZ24iLCJkaXYiLCJjbGFzc05hbWUiLCJwIiwiY29tcGFueUNhbXBhaWducyIsImxlbmd0aCIsImEiLCJocmVmIiwidGVtcGxhdGUiLCJ0YXJnZXQiLCJzdGF0dXMiLCJoMSIsIm5hbWUiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./components/CampaignMenu.tsx\n");
+
+/***/ }),
+
+/***/ "./pages/campaigns/[id].tsx":
+/*!**********************************!*\
+  !*** ./pages/campaigns/[id].tsx ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ \"react/jsx-runtime\");\n/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/head */ \"next/head\");\n/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/router */ \"next/router\");\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ \"axios\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var _components_CampaignMenu__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/CampaignMenu */ \"./components/CampaignMenu.tsx\");\n\n\n\n\n\n\n\nconst Campaign = ()=>{\n    const router = (0,next_router__WEBPACK_IMPORTED_MODULE_3__.useRouter)();\n    const { id  } = router.query;\n    const { 0: campaign , 1: setCampaign  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null);\n    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{\n        async function getCampaign() {\n            const data = await axios__WEBPACK_IMPORTED_MODULE_4___default().post(`/api/campaigns/get`, {\n                campaign_name: id\n            });\n            console.log(data.data);\n            setCampaign(data.data);\n        }\n        getCampaign();\n    }, []);\n    return(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(\"div\", {\n        style: {\n            minHeight: \"100vh\"\n        },\n        __source: {\n            fileName: \"/Users/ben/Desktop/ssgm/pages/campaigns/[id].tsx\",\n            lineNumber: 28,\n            columnNumber: 5\n        },\n        __self: undefined,\n        children: [\n            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)((next_head__WEBPACK_IMPORTED_MODULE_2___default()), {\n                __source: {\n                    fileName: \"/Users/ben/Desktop/ssgm/pages/campaigns/[id].tsx\",\n                    lineNumber: 29,\n                    columnNumber: 7\n                },\n                __self: undefined,\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(\"title\", {\n                        __source: {\n                            fileName: \"/Users/ben/Desktop/ssgm/pages/campaigns/[id].tsx\",\n                            lineNumber: 30,\n                            columnNumber: 9\n                        },\n                        __self: undefined,\n                        children: \"Ember | SSGM\"\n                    }),\n                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(\"meta\", {\n                        name: \"description\",\n                        content: \"Generated by create next app\",\n                        __source: {\n                            fileName: \"/Users/ben/Desktop/ssgm/pages/campaigns/[id].tsx\",\n                            lineNumber: 31,\n                            columnNumber: 9\n                        },\n                        __self: undefined\n                    }),\n                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(\"link\", {\n                        rel: \"icon\",\n                        href: \"/favicon.ico\",\n                        __source: {\n                            fileName: \"/Users/ben/Desktop/ssgm/pages/campaigns/[id].tsx\",\n                            lineNumber: 32,\n                            columnNumber: 9\n                        },\n                        __self: undefined\n                    })\n                ]\n            }),\n            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_CampaignMenu__WEBPACK_IMPORTED_MODULE_5__[\"default\"], {\n                campaign: campaign,\n                __source: {\n                    fileName: \"/Users/ben/Desktop/ssgm/pages/campaigns/[id].tsx\",\n                    lineNumber: 34,\n                    columnNumber: 7\n                },\n                __self: undefined\n            })\n        ]\n    }));\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Campaign);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9jYW1wYWlnbnMvW2lkXS50c3guanMiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7OztBQUM4QjtBQUNGO0FBQ1c7QUFDUjtBQUNOO0FBQytCO0FBSXhELEtBQUssQ0FBQ00sUUFBUSxPQUFtQixDQUFDO0lBQ2hDLEtBQUssQ0FBQ0MsTUFBTSxHQUFHTCxzREFBUztJQUN4QixLQUFLLENBQUMsQ0FBQyxDQUFDTSxFQUFFLEVBQUMsQ0FBQyxHQUFHRCxNQUFNLENBQUNFLEtBQUs7SUFDM0IsS0FBSyxNQUFFQyxRQUFRLE1BQUVDLFdBQVcsTUFBSVgsK0NBQVEsQ0FBQyxJQUFJO0lBRTdDRyxnREFBUyxLQUFPLENBQUM7dUJBQ0FTLFdBQVcsR0FBRyxDQUFDO1lBQzVCLEtBQUssQ0FBQ0MsSUFBSSxHQUFHLEtBQUssQ0FBQ1QsaURBQVUsRUFBRSxrQkFBa0IsR0FBRyxDQUFDO2dCQUNuRFcsYUFBYSxFQUFFUCxFQUFFO1lBQ25CLENBQUM7WUFDRFEsT0FBTyxDQUFDQyxHQUFHLENBQUNKLElBQUksQ0FBQ0EsSUFBSTtZQUNyQkYsV0FBVyxDQUFDRSxJQUFJLENBQUNBLElBQUk7UUFDdkIsQ0FBQztRQUNERCxXQUFXO0lBQ2IsQ0FBQyxFQUFFLENBQUMsQ0FBQztJQUVMLE1BQU0sdUVBQ0hNLENBQUc7UUFBQ0MsS0FBSyxFQUFFLENBQUNDO1lBQUFBLFNBQVMsRUFBRSxDQUFPO1FBQUEsQ0FBQzs7Ozs7Ozs7a0ZBQzdCbkIsa0RBQUk7Ozs7Ozs7O3lGQUNGb0IsQ0FBSzs7Ozs7OztrQ0FBQyxDQUFZOzt5RkFDbEJDLENBQUk7d0JBQUNDLElBQUksRUFBQyxDQUFhO3dCQUFDQyxPQUFPLEVBQUMsQ0FBOEI7Ozs7Ozs7O3lGQUM5REMsQ0FBSTt3QkFBQ0MsR0FBRyxFQUFDLENBQU07d0JBQUNDLElBQUksRUFBQyxDQUFjOzs7Ozs7Ozs7O2lGQUVyQ3RCLGdFQUFZO2dCQUFDSyxRQUFRLEVBQUVBLFFBQVE7Ozs7Ozs7Ozs7QUFHdEMsQ0FBQztBQUVELGlFQUFlSixRQUFRIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vc3NnbS8uL3BhZ2VzL2NhbXBhaWducy9baWRdLnRzeD9kNzBlIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB0eXBlIHsgTmV4dFBhZ2UgfSBmcm9tICduZXh0J1xuaW1wb3J0IHt1c2VTdGF0ZX0gZnJvbSBcInJlYWN0XCJcbmltcG9ydCBIZWFkIGZyb20gJ25leHQvaGVhZCdcbmltcG9ydCB7IHVzZVJvdXRlciB9IGZyb20gXCJuZXh0L3JvdXRlclwiO1xuaW1wb3J0IHt1c2VFZmZlY3R9IGZyb20gXCJyZWFjdFwiXG5pbXBvcnQgQXhpb3MgZnJvbSAnYXhpb3MnXG5pbXBvcnQgQ2FtcGFpZ25NZW51IGZyb20gJy4uLy4uL2NvbXBvbmVudHMvQ2FtcGFpZ25NZW51JztcblxuXG5cbmNvbnN0IENhbXBhaWduOiBOZXh0UGFnZSA9ICgpID0+IHtcbiAgY29uc3Qgcm91dGVyID0gdXNlUm91dGVyKCk7XG4gIGNvbnN0IHsgaWQgfSA9IHJvdXRlci5xdWVyeTtcbiAgY29uc3QgW2NhbXBhaWduLCBzZXRDYW1wYWlnbl0gPSB1c2VTdGF0ZShudWxsKTtcblxuICB1c2VFZmZlY3QoKCkgPT4ge1xuICAgIGFzeW5jIGZ1bmN0aW9uIGdldENhbXBhaWduKCkge1xuICAgICAgY29uc3QgZGF0YSA9IGF3YWl0IEF4aW9zLnBvc3QoYC9hcGkvY2FtcGFpZ25zL2dldGAsIHtcbiAgICAgICAgY2FtcGFpZ25fbmFtZTogaWRcbiAgICAgIH0pO1xuICAgICAgY29uc29sZS5sb2coZGF0YS5kYXRhKTtcbiAgICAgIHNldENhbXBhaWduKGRhdGEuZGF0YSk7XG4gICAgfVxuICAgIGdldENhbXBhaWduKCk7XG4gIH0sIFtdKTtcblxuICByZXR1cm4gKFxuICAgIDxkaXYgc3R5bGU9e3ttaW5IZWlnaHQ6IFwiMTAwdmhcIn19PlxuICAgICAgPEhlYWQ+XG4gICAgICAgIDx0aXRsZT5FbWJlciB8IFNTR008L3RpdGxlPlxuICAgICAgICA8bWV0YSBuYW1lPVwiZGVzY3JpcHRpb25cIiBjb250ZW50PVwiR2VuZXJhdGVkIGJ5IGNyZWF0ZSBuZXh0IGFwcFwiIC8+XG4gICAgICAgIDxsaW5rIHJlbD1cImljb25cIiBocmVmPVwiL2Zhdmljb24uaWNvXCIgLz5cbiAgICAgIDwvSGVhZD5cbiAgICAgIDxDYW1wYWlnbk1lbnUgY2FtcGFpZ249e2NhbXBhaWdufS8+XG4gICAgPC9kaXY+XG4gIClcbn1cblxuZXhwb3J0IGRlZmF1bHQgQ2FtcGFpZ24iXSwibmFtZXMiOlsidXNlU3RhdGUiLCJIZWFkIiwidXNlUm91dGVyIiwidXNlRWZmZWN0IiwiQXhpb3MiLCJDYW1wYWlnbk1lbnUiLCJDYW1wYWlnbiIsInJvdXRlciIsImlkIiwicXVlcnkiLCJjYW1wYWlnbiIsInNldENhbXBhaWduIiwiZ2V0Q2FtcGFpZ24iLCJkYXRhIiwicG9zdCIsImNhbXBhaWduX25hbWUiLCJjb25zb2xlIiwibG9nIiwiZGl2Iiwic3R5bGUiLCJtaW5IZWlnaHQiLCJ0aXRsZSIsIm1ldGEiLCJuYW1lIiwiY29udGVudCIsImxpbmsiLCJyZWwiLCJocmVmIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./pages/campaigns/[id].tsx\n");
+
+/***/ }),
+
+/***/ "@mui/icons-material/Groups":
+/*!*********************************************!*\
+  !*** external "@mui/icons-material/Groups" ***!
+  \*********************************************/
+/***/ ((module) => {
+
+module.exports = require("@mui/icons-material/Groups");
+
+/***/ }),
+
+/***/ "@mui/icons-material/UploadFile":
+/*!*************************************************!*\
+  !*** external "@mui/icons-material/UploadFile" ***!
+  \*************************************************/
+/***/ ((module) => {
+
+module.exports = require("@mui/icons-material/UploadFile");
+
+/***/ }),
+
+/***/ "axios":
+/*!************************!*\
+  !*** external "axios" ***!
+  \************************/
+/***/ ((module) => {
+
+module.exports = require("axios");
+
+/***/ }),
+
+/***/ "next/head":
+/*!****************************!*\
+  !*** external "next/head" ***!
+  \****************************/
+/***/ ((module) => {
+
+module.exports = require("next/head");
+
+/***/ }),
+
+/***/ "next/router":
+/*!******************************!*\
+  !*** external "next/router" ***!
+  \******************************/
+/***/ ((module) => {
+
+module.exports = require("next/router");
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "react" ***!
+  \************************/
+/***/ ((module) => {
+
+module.exports = require("react");
+
+/***/ }),
+
+/***/ "react/jsx-runtime":
+/*!************************************!*\
+  !*** external "react/jsx-runtime" ***!
+  \************************************/
+/***/ ((module) => {
+
+module.exports = require("react/jsx-runtime");
+
+/***/ })
+
+};
+;
+
+// load runtime
+var __webpack_require__ = require("../../webpack-runtime.js");
+__webpack_require__.C(exports);
+var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+var __webpack_exports__ = (__webpack_exec__("./pages/campaigns/[id].tsx"));
+module.exports = __webpack_exports__;
+
+})();
