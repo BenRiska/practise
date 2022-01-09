@@ -2,18 +2,22 @@ import UploadFileIcon from '@mui/icons-material/UploadFile';
 import GroupsIcon from '@mui/icons-material/Groups';
 
 const CampaignMenu = ({campaign}: any) => {
-  return <div className='p-8 max-w-7xl mx-auto'>
+  console.log(campaign)
+  return <div>
             <div className="flex justify-between">
-              <div className='flex shadow px-4 py-3 rounded-lg space-x-2 items-center cursor-pointer'>
-                <GroupsIcon/>
-                <p>{campaign?.companyCampaigns.length}</p>
+              <div className='flex items-center'>
+                <div className='flex shadow px-4 h-10 rounded-lg space-x-2 items-center cursor-pointer'>
+                  <GroupsIcon/>
+                  <p className='text-sm'>{campaign?.companyCampaigns.length}</p>
+                </div>
+                {campaign?.industries.map((industry: any) => <div className='flex text-sm shadow ml-4 bg-gray-100 px-4 h-10 rounded-lg space-x-2 items-center cursor-pointer'>{industry}</div>)}
               </div>
               <div className='flex items-center'>
-                <a href={`https://pdf.ember.co/api/pdf?letter_template=${campaign?.template}`} target={"_blank"} className="px-4 py-3.5 rounded-lg shadow cursor-pointer">
+                {campaign?.template && <a href={`https://pdf.ember.co/api/pdf?letter_template=${campaign.template}`} target={"_blank"} className="px-4 py-3.5 h-10 flex items-center rounded-lg shadow cursor-pointer">
                   <UploadFileIcon/>
-                </a>
+                </a>}
                 <div>
-                  <p className='bg-green-100 px-4 py-3 rounded-lg ml-4 shadow'>{campaign?.status}</p>
+                  <p className='bg-green-200 px-4 py-3 text-sm h-10 flex items-center rounded-lg ml-4 shadow'>{campaign?.status}</p>
                 </div>
               </div>
             </div>
