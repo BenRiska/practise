@@ -22,17 +22,26 @@ const BarChart = ({idName}: any) => {
 
     // Define data
     let data = [{
-      category: "Research",
-      value1: 1000,
-      value2: 588
+      category: "16+",
+      value1: 60
     }, {
-      category: "Marketing",
-      value1: 1200,
-      value2: 1800
+      category: "20+",
+      value1: 240
     }, {
-      category: "Sales",
-      value1: 850,
-      value2: 1230
+      category: "30+",
+      value1: 250
+    }, {
+      category: "40+",
+      value1: 145
+    }, {
+      category: "50+",
+      value1: 102
+    }, {
+      category: "60+",
+      value1: 25
+    }, {
+      category: "70+",
+      value1: 3
     }];
 
     // Create Y-axis
@@ -54,7 +63,7 @@ const BarChart = ({idName}: any) => {
     // Create series
     let series1 = chart.series.push(
       am5xy.ColumnSeries.new(root, {
-        name: "Series",
+        name: "Age",
         xAxis: xAxis,
         yAxis: yAxis,
         valueYField: "value1",
@@ -63,16 +72,6 @@ const BarChart = ({idName}: any) => {
     );
     series1.data.setAll(data);
 
-    let series2 = chart.series.push(
-      am5xy.ColumnSeries.new(root, {
-        name: "Series",
-        xAxis: xAxis,
-        yAxis: yAxis,
-        valueYField: "value2",
-        categoryXField: "category"
-      })
-    );
-    series2.data.setAll(data);
 
     // Add legend
     let legend = chart.children.push(am5.Legend.new(root, {}));
@@ -87,8 +86,7 @@ const BarChart = ({idName}: any) => {
   }, []);
 
   return (
-  <div className='flex mt-20 space-y-4 flex-col items-start w-2/5'>
-    <h2>Average Director Age</h2>
+  <div className='flex w-full space-y-4 flex-col items-start'>
     <div id={idName} style={{ width: "100%", height: "300px" }}></div>
   </div>)
 }

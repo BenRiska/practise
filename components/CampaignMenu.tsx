@@ -8,16 +8,16 @@ const CampaignMenu = ({campaign}: any) => {
               <div className='flex items-center'>
                 <div className='flex shadow px-4 h-10 rounded-lg space-x-2 items-center cursor-pointer'>
                   <GroupsIcon/>
-                  <p className='text-sm'>{campaign?.companyCampaigns.length}</p>
+                  <p className='text-sm'>{campaign?._count.companyCampaigns}</p>
                 </div>
-                {campaign?.industries.map((industry: any) => <div className='flex text-sm shadow ml-4 bg-gray-100 px-4 h-10 rounded-lg space-x-2 items-center cursor-pointer'>{industry}</div>)}
+                {campaign?.industries.map((industry: any) => <a href={`https://www.siccode.co.uk/sic2007/code-${industry}`} target="_blank" className='flex text-sm shadow ml-4 bg-gray-100 px-4 h-10 rounded-lg space-x-2 items-center cursor-pointer'>{industry}</a>)}
               </div>
               <div className='flex items-center'>
                 {campaign?.template && <a href={`https://pdf.ember.co/api/pdf?letter_template=${campaign.template}`} target={"_blank"} className="px-4 py-3.5 h-10 flex items-center rounded-lg shadow cursor-pointer">
                   <UploadFileIcon/>
                 </a>}
                 <div>
-                  <p className='bg-green-200 px-4 py-3 text-sm h-10 flex items-center rounded-lg ml-4 shadow'>{campaign?.status}</p>
+                  <p className='bg-green-200 text-white px-4 py-3 text-sm h-10 flex items-center rounded-lg ml-4 shadow'>{campaign?.status}</p>
                 </div>
               </div>
             </div>

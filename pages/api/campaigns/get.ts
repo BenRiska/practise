@@ -12,13 +12,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       name: campaign_name
     },
     include: {
-      companyCampaigns: {
-        include: {
-          company: {
-            include: {
-              directors: true
-            }
-          }
+      _count: {
+        select: {
+          companyCampaigns: true
         }
       }
     }

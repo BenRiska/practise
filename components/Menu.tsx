@@ -20,7 +20,7 @@ const Menu = ({user, setMenuOpen, setDropdownMenuOpen}: any) => {
                 <img className="h-7 ml-4" src={`${pathname.match(new RegExp("/", "g")).length > 1 ? "." : ""}./black.svg`} />
                  {/* @ts-ignore */}
                 <img onClick={() => replace("/")} className="h-4 ml-2 cursor-pointer" src={`${pathname.match(new RegExp("/", "g")).length > 1 ? "." : ""}./Wordmark.svg`} />
-                <div style={{width: 1}} className="h-8 ml-4 opacity-50 bg-black"/>
+                <div style={{width: 2}} className="h-8 ml-4 opacity-70 bg-black"/>
                 <p className="ml-4">{getPageName(pathname)}</p>
               </div>
               <div className="flex items-center space-x-1 justify-center">

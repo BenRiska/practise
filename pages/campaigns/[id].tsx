@@ -37,10 +37,11 @@ const Campaign: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <CampaignMenu campaign={campaign}/>
-      <CampaignDetailCards />
-      <div className='flex justify-between'>
-      <BarChart idName="chart1" />
-      <BarChart idName="chart2" />
+      <div className='flex justify-between w-full'>
+        <CampaignDetailCards campaign={campaign} />
+        <div className='flex flex-col w-2/3 ml-12 space-y-12 justify-between mt-8'>
+          <BarChart idName="chart1" />
+        </div>
       </div>
     </div>
   )
