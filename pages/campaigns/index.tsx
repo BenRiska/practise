@@ -12,7 +12,7 @@ const Campaigns: NextPage = () => {
 
   const getData = async () => {
     const { data } = await Axios.get(`api/campaigns/all`);
-    console.log(data);
+    
     setCampaigns(data)
   }
 

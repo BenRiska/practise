@@ -6,7 +6,7 @@ import prisma from "../../../../services/prisma";
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const {page, filter} = req.body
   const {age, locations, classifications, address, email, linkedin} = filter;
-  console.log(filter)
+  
   const skip = parseInt(page) * 30;
   const companies = await prisma.company.findMany({
     where: {

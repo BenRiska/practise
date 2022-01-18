@@ -5,7 +5,7 @@ import prisma from "../../../services/prisma";
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { campaign_name }: any = req.body;
 
-  console.log("hit")
+ 
 
   const campaign = await prisma.campaign.findFirst({
     where: {

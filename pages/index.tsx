@@ -8,7 +8,7 @@ const Home: NextPage = () => {
 
   const getData = async () => {
     const { data } = await Axios.get(`api/hello`);
-    console.log(data);
+  
   }
 
   useEffect( () => {

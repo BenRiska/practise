@@ -8,7 +8,7 @@ const Agents: NextPage = () => {
 
   const getData = async () => {
     const { data } = await Axios.get(`api/Agents/all`);
-    console.log(data);
+   
   }
 
   useEffect( () => {

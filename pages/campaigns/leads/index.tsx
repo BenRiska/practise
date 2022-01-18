@@ -14,7 +14,7 @@ const Leads: NextPage = () => {
 
   const getData = async () => {
     const { data } = await Axios.post(`/api/campaigns/leads/all`, {page, filter});
-    console.log(data);
+  
     setLeads(data.companies)
   }
 
@@ -26,7 +26,7 @@ const Leads: NextPage = () => {
     const newPage = page + 1
     const { data } = await Axios.post(`/api/campaigns/leads/all`, {page, filter});
     setPage(newPage)
-    console.log(data);
+ 
     setLeads([ ...leads , ...data.companies])
   }
 

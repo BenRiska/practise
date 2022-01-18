@@ -13,7 +13,7 @@ const LeadsMenu = ({filter, adjustFilter}: any) => {
   const [classInput, setClassInput] = useState("")
 
   const handleLocationInput = (e: any) => {
-    console.log(e.key)
+   
     if(e.key === "Enter"){
         adjustFilter("locations", [...filter.locations, locationInput]);
         setLocationInput("");
@@ -21,7 +21,7 @@ const LeadsMenu = ({filter, adjustFilter}: any) => {
   }
 
   const handleClassInput = (e: any) => {
-    console.log(e.key)
+    
     if(e.key === "Enter"){
       if (classInput.length === 5) {
         adjustFilter("classifications", [...filter.classifications, classInput]);

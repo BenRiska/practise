@@ -6,7 +6,10 @@ import {useEffect} from "react"
 import Axios from 'axios'
 import CampaignMenu from '../../components/CampaignMenu';
 import CampaignDetailCards from '../../components/CampaignDetailCards';
-import BarChart from '../../components/BarChart';
+import DirectorAgeChart from '../../components/DirectorAgeChart';
+import CompanyLocationChart from '../../components/CompanyLocationChart';
+import CampaignCostChart from "../../components/CampaignCostChart"
+
 
 
 
@@ -23,7 +26,7 @@ const Campaign: NextPage = () => {
       const data = await Axios.post(`/api/campaigns/get`, {
         campaign_name: id
       });
-      console.log(data.data);
+     
       setCampaign(data.data);
     }
     getCampaign();
@@ -40,7 +43,12 @@ const Campaign: NextPage = () => {
       <div className='flex justify-between w-full'>
         <CampaignDetailCards campaign={campaign} />
         <div className='flex flex-col w-2/3 ml-12 space-y-12 justify-between mt-8'>
-          <BarChart idName="chart1" />
+          {/* @ts-ignore*/}
+          <DirectorAgeChart idName="chart1" campaign={campaign?.id} />
+            {/* @ts-ignore*/}
+          <CompanyLocationChart idName="chart2" campaign={campaign?.id} />
+          {/* @ts-ignore*/}
+          <CampaignCostChart idName="chart3" campaign={campaign?.id} />
         </div>
       </div>
     </div>

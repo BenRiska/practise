@@ -1,14 +1,37 @@
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import GroupsIcon from '@mui/icons-material/Groups';
+import axios from 'axios';
+
+const downloadCsv = (string) => {
+  var blob = new Blob([string]);
+  if (window.navigator.msSaveOrOpenBlob) {
+    window.navigator.msSaveBlob(blob, "filename.csv");
+  } else {
+    var a = window.document.createElement("a");
+
+    a.href = window.URL.createObjectURL(blob);
+    a.download = "leads.csv";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+}
 
 const CampaignMenu = ({campaign}: any) => {
-  console.log(campaign)
+
+  async function downloadLeadList() {
+    console.log("hit")
+    const csv = await axios.post(`/api/util/csv`, {
+      campaign_id: campaign?.id
+    });
+    downloadCsv(csv.data);
+  }
   return <div>
             <div className="flex justify-between">
               <div className='flex items-center'>
                 <div className='flex shadow px-4 h-10 rounded-lg space-x-2 items-center cursor-pointer'>
                   <GroupsIcon/>
-                  <p className='text-sm'>{campaign?._count.companyCampaigns}</p>
+                  <p onClick={() => downloadLeadList()} className='text-sm'>{campaign?._count.companyCampaigns}</p>
                 </div>
                 {campaign?.industries.map((industry: any) => <a href={`https://www.siccode.co.uk/sic2007/code-${industry}`} target="_blank" className='flex text-sm shadow ml-4 bg-gray-100 px-4 h-10 rounded-lg space-x-2 items-center cursor-pointer'>{industry}</a>)}
               </div>
