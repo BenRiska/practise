@@ -1,6 +1,8 @@
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import GroupsIcon from '@mui/icons-material/Groups';
 import axios from 'axios';
+import EditableLabel from 'react-inline-editing';
+import Axios from 'axios'
 
 const downloadCsv = (string) => {
   var blob = new Blob([string]);
@@ -17,7 +19,7 @@ const downloadCsv = (string) => {
   }
 }
 
-const CampaignMenu = ({campaign}: any) => {
+const CampaignMenu = ({campaign, setCampaign}: any) => {
 
   async function downloadLeadList() {
     console.log("hit")
@@ -25,6 +27,15 @@ const CampaignMenu = ({campaign}: any) => {
       campaign_id: campaign?.id
     });
     downloadCsv(csv.data);
+  }
+
+  const updateCampaignName = async (text) => {
+    console.log("hit")
+    const data = await Axios.post(`/api/util/updateCampaignName`, {
+      campaign_id: campaign.id,
+      name: text
+    });
+    setCampaign(data.data);
   }
   return <div>
             <div className="flex justify-between">
@@ -45,7 +56,17 @@ const CampaignMenu = ({campaign}: any) => {
               </div>
             </div>
             <div className='mt-8'>
-                <h1 className='text-5xl'>{campaign?.name}</h1>
+                {campaign && <EditableLabel text={campaign?.name}
+                labelClassName='cursor-pointer text-5xl'
+                inputClassName='text-5xl focus:outline-red-400'
+                inputWidth='100%'
+                inputHeight='48px'
+                inputMaxLength='200'
+                labelFontWeight='medium'
+                inputFontWeight='medium'
+                onFocus={() => null}
+                onFocusOut={updateCampaignName}
+                />}
             </div>
          </div>
 }
