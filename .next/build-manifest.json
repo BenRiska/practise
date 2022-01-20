@@ -30,10 +30,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/campaigns.js"
     ],
-    "/campaigns/[id]": [
+    "/campaigns/create": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/campaigns/[id].js"
+      "static/chunks/pages/campaigns/create.js"
     ]
   },
   "ampFirstPages": []
