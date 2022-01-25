@@ -25,10 +25,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/campaigns": [
+    "/campaigns/[id]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/campaigns.js"
+      "static/chunks/pages/campaigns/[id].js"
     ],
     "/campaigns/create": [
       "static/chunks/webpack.js",
