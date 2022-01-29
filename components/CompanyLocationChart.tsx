@@ -178,7 +178,7 @@ chart.appear(1000, 100);
 
   return (
   <div className='flex w-full space-y-4 flex-col items-start'>
-    <div id={idName} style={{ width: "100%", height: "700px" }}></div>
+    <div id={idName} style={{ width: "100%", height: "70vh" }}></div>
   </div>)
 }
 

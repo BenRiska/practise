@@ -6,8 +6,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-
-  const agents = await prisma.agent.findMany();
-
-  res.json(agents);
+console.log("hit")
+  
+  res.end()
 }

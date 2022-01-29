@@ -40,16 +40,17 @@ const Campaign: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <CampaignMenu setCampaign={setCampaign} campaign={campaign}/>
-      <div className='flex justify-between w-full'>
-        <CampaignDetailCards campaign={campaign} />
-        <div className='flex flex-col w-2/3 ml-12 space-y-12 justify-between mt-8'>
-          {/* @ts-ignore*/}
-          <DirectorAgeChart idName="chart1" campaign={campaign?.id} />
+      <div className='flex flex-col justify-between mt-4 w-full'>
+          <h1 className='text-4xl text-center mt-4 mb-4'>Top Locations</h1>
             {/* @ts-ignore*/}
           <CompanyLocationChart idName="chart2" campaign={campaign?.id} />
+          <h1 className='text-4xl text-center mt-4 mb-8'>Average Director Age</h1>
+          {/* @ts-ignore*/}
+          <DirectorAgeChart idName="chart1" campaign={campaign?.id} />
+          <h1 className='text-4xl text-center mt-0 mb-8'>Cost Comparison</h1>
           {/* @ts-ignore*/}
           <CampaignCostChart idName="chart3" campaign={campaign?.id} />
-        </div>
+     
       </div>
     </div>
   )

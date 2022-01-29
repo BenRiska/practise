@@ -107,6 +107,13 @@ model Ping {
   createdAt DateTime @default(now())
   serviceId Int
   service   Services @relation(fields: [serviceId], references: [id])
+  status    PingStatus? 
+  error     String?
+}
+
+enum PingStatus {
+  UP
+  DOWN
 }
 
 enum Service {
