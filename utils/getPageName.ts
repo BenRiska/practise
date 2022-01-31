@@ -6,6 +6,8 @@ const getPageName = (route: string) => {
       return "Campaigns"
     case "/campaigns/leads":
       return "Leads"
+    case "/statistics":
+      return "Statistics"
     default: 
       return "SSGM"
   }

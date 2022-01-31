@@ -46,7 +46,7 @@ setInterval(function() {
     dataItem.set("value", value);
     dataItem.set("valueWorking", value);
   })
-}, 5000)
+}, 8000)
 
 
 // Data from:
