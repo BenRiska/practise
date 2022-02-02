@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Modal from 'react-modal';
 import {useEffect, useState} from "react"
 import Axios from 'axios'
+import CampaignCostChart from '../components/CampaignCostChart';
 
 const Home: NextPage = () => {
 
@@ -32,11 +33,13 @@ const Home: NextPage = () => {
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
-        style={{maxWidth: 800, maxHeight: "70vh"}}
+        style={{maxWidth: 800, maxHeight: "70vh", zIndex: 9999}}
         contentLabel="Example Modal"
+        shouldCloseOnOverlayClick
       >
-        <button onClick={closeModal}>close</button>
-        <div>I am a modal</div>
+        <div className='mt-12'>
+        <CampaignCostChart idName="chart3" campaign={1} />
+        </div>
       </Modal>
 
       <h1 className='text-5xl font-light m-auto pt-16 pb-4 text-center'><span className='font-medium text-red-400'>SSGM</span> Statistics -</h1>
@@ -80,7 +83,6 @@ const Home: NextPage = () => {
           <p className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>2</span> <span>SSGM Search Performance</span></p>
         </div>
       </div>
-   
     </div>
   )
 }
