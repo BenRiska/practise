@@ -4,10 +4,28 @@ import Modal from 'react-modal';
 import {useEffect, useState} from "react"
 import Axios from 'axios'
 import CampaignCostChart from '../components/CampaignCostChart';
+import MostPoppingSICCodes from '../components/MostPoppingSICCodes';
+
+const StatisticMap = {
+  ["COST_COMPARISON"]: <CampaignCostChart idName="chart" campaign={1}/>,
+  ["MOST_POPPING_SIC_CODES"]: <MostPoppingSICCodes />
+}
+
+const getCurrentStatisticComponent = (currentStatistic: any) => {
+  return StatisticMap[currentStatistic]
+}
 
 const Home: NextPage = () => {
 
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [currentStatistic, setCurrentStatistic] = useState(null)
+ 
+
+  useEffect(() => {
+    if(currentStatistic){
+    setIsOpen(true)
+    }
+  }, [currentStatistic])
 
   function openModal() {
     setIsOpen(true);
@@ -38,7 +56,7 @@ const Home: NextPage = () => {
         shouldCloseOnOverlayClick
       >
         <div className='mt-12'>
-        <CampaignCostChart idName="chart3" campaign={1} />
+         {getCurrentStatisticComponent(currentStatistic)}
         </div>
       </Modal>
 
@@ -49,7 +67,7 @@ const Home: NextPage = () => {
         <div className='w-1/4 flex flex-col'>
           <div style={{height: 1}} className='w-full bg-gray-600' />
           <h1 className='py-2'>Companies</h1>
-          <p className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>1</span> <span>Most popular SIC Codes</span></p>
+          <p onClick={() => setCurrentStatistic("MOST_POPPING_SIC_CODES")} className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>1</span> <span>Most popular SIC Codes</span></p>
           <p className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>2</span> <span>SIC popularity Timeline</span></p>
           <p className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>3</span> <span>Ember Grade System Breakdown</span></p>
           <p className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>4</span> <span>Company Formation Occurence Rate</span></p>
@@ -62,7 +80,7 @@ const Home: NextPage = () => {
         <div className='w-1/4 flex flex-col'>
           <div style={{height: 1}} className='w-full bg-gray-600' />
           <h1 className='py-2'>Campaigns</h1>
-          <p onClick={openModal} className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>1</span> <span>Cost Comparison Treemap</span></p>
+          <p onClick={() => setCurrentStatistic("COST_COMPARISON")} className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>1</span> <span>Cost Comparison Treemap</span></p>
           <p className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>2</span> <span>Widest Reaching</span></p>
           <p className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>3</span> <span>Highest Costing</span></p>
           <p className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>4</span> <span>Top Performing</span></p>
