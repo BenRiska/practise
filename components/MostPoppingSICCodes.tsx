@@ -7,7 +7,7 @@ import axios from 'axios';
 
 const MostPoppingSICCodes = () => {
 
-  const [data, setData] = useState("")
+  const [data, setData] = useState([])
 
   useEffect(() => {
   
@@ -87,52 +87,16 @@ var series = chart.series.push(am5xy.ColumnSeries.new(root, {
 
 series.columns.template.setAll({ cornerRadiusTL: 5, cornerRadiusTR: 5 });
 series.columns.template.adapters.add("fill", (fill, target) => {
+  // @ts-ignore
   return chart.get("colors").getIndex(series.columns.indexOf(target));
 });
 
 series.columns.template.adapters.add("stroke", (stroke, target) => {
+  // @ts-ignore
   return chart.get("colors").getIndex(series.columns.indexOf(target));
 });
 
 
-// Set data
-var data = [{
-  country: "USA",
-  value: 2025
-}, {
-  country: "China",
-  value: 1882
-}, {
-  country: "Japan",
-  value: 1809
-}, {
-  country: "Germany",
-  value: 1322
-}, {
-  country: "UK",
-  value: 1122
-}, {
-  country: "France",
-  value: 1114
-}, {
-  country: "India",
-  value: 984
-}, {
-  country: "Spain",
-  value: 711
-}, {
-  country: "Netherlands",
-  value: 665
-}, {
-  country: "Russia",
-  value: 580
-}, {
-  country: "South Korea",
-  value: 443
-}, {
-  country: "Canada",
-  value: 441
-}];
 
 xAxis.data.setAll(data);
 series.data.setAll(data);
@@ -141,7 +105,7 @@ series.data.setAll(data);
          return () => {
            root.dispose();
          };
-       }, []);
+       }, [data]);
 
   return  <div id={"chartdiv"} style={{ width: "100%", height: "70vh", marginTop: 50 }}></div>
 }

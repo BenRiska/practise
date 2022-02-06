@@ -25,11 +25,6 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/campaigns/[id]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/campaigns/[id].js"
-    ],
     "/statistics": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

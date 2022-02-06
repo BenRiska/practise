@@ -1,65 +1,38 @@
 // This file gets every campaign
-import moment from "moment";
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../../services/prisma";
 
+
+
+
+
+
 export default async (req: NextApiRequest, res: NextApiResponse) => {
 
-  const { campaign_id }: any = req.body;
 
-  let campaigns: any = await prisma.companyCampaign.findMany({
-    where: {campaignId: campaign_id},
+  let companies: any = await prisma.company.findMany({
     select: {
-      company: {
-        select: {
-          directors: {
-            select: {
-              dateOfBirth: true
-            }
-          }
-        }
-      }
+      industries: true
     }
   })
 
-  let directorAges = campaigns.map((campaign: any) => moment().diff(moment(campaign?.company?.directors[0]?.dateOfBirth), "years"))
+  let sicCodes = companies.map(({industries}: any) => industries).flat() 
+ 
+  var occurrences = sicCodes.reduce(function(obj: any, item: any) {
+    obj[item] = (obj[item] || 0) + 1;
+    return obj;
+  }, {});
+  
 
-  directorAges = directorAges.filter((age: any) => !Number.isNaN(age))
 
-  const data = [{
-    category: "16-30",
-    value1: 0
-  }, {
-    category: "30-40",
-    value1: 0
-  }, {
-    category: "40-50",
-    value1: 0
-  }, 
-  {
-    category: "50-60",
-    value1: 0
-  }, 
-  {
-    category: "60+",
-    value1: 0
-  }, 
-]
+  const codeArray = []
 
-  directorAges.forEach((age: any) => {
-    if(age > 16 && age < 30){
-      data[0].value1 = data[0].value1 + 1
-    } else if (age > 30 && age < 40){
-      data[1].value1 = data[1].value1 + 1
-    }else if (age > 40 && age < 50){
-      data[2].value1 = data[2].value1 + 1
-    }
-    else if (age > 50 && age < 60){
-      data[3].value1 = data[3].value1 + 1
-    }else if (age > 60 && age < 70){
-      data[4].value1 = data[4].value1 + 1
-    }
-  });
+  for (const [key, value] of Object.entries(occurrences)){
+    codeArray.push({country: key, value: value})
+  }
+
+  const data = codeArray.sort((a: any,b: any) => (a.value < b.value) ? 1 : ((b.value < a.value) ? -1 : 0)).slice(0,20)
+
  
   res.json(data);
 };

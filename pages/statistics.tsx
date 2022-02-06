@@ -2,13 +2,36 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Modal from 'react-modal';
 import {useEffect, useState} from "react"
-import Axios from 'axios'
 import CampaignCostChart from '../components/CampaignCostChart';
 import MostPoppingSICCodes from '../components/MostPoppingSICCodes';
+import SicPopularityTimeline from "../components/SicPopularityTimeline"
+import EmberGradeBreakdown from '../components/EmberGradeBreakdown';
+import CompanyFormationBreakdown from '../components/CompanyFormationBreakdown';
+import EmberSICBreakdown from '../components/EmberSICBreakdown';
+import CampaignSizeBreakdown from '../components/CampaignSizeBreakdown';
+import CampaignCostBreakdown from '../components/CampaignCostBreakdown';
+import TopPerformingCampaigns from '../components/TopPerformingCampaigns';
+import AverageDirectorAge from '../components/AverageDirectorAge';
+import DirectorOwnedCompanyCount from '../components/DirectorOwnedCompanyCount';
+import TopDirectorLocation from '../components/TopDirectorLocation';
+import MostPopularName from '../components/MostPopularName';
+import SSGMPerformanceChart from '../components/SSGMPerformanceChart';
 
 const StatisticMap = {
   ["COST_COMPARISON"]: <CampaignCostChart idName="chart" campaign={1}/>,
-  ["MOST_POPPING_SIC_CODES"]: <MostPoppingSICCodes />
+  ["MOST_POPPING_SIC_CODES"]: <MostPoppingSICCodes />,
+  ["SIC_TIMELANE_CHART"]: <SicPopularityTimeline />,
+  ["EMBER_GRADE_BREAKDOWN"]: <EmberGradeBreakdown />,
+  ["COMPANY_FORMATION_BREAKDOWN"]: <CompanyFormationBreakdown />,
+  ["EMBER_SIC_BREAKDOWN"]: <EmberSICBreakdown />,
+  ["CAMPAIGN_SIZE_BREAKDOWN"]: <CampaignSizeBreakdown />,
+  ["CAMPAIGN_COST_BREAKDOWN"]: <CampaignCostBreakdown />,
+  ["TOP_PERFORMING_CAMPAIGNS"]: <TopPerformingCampaigns />,
+  ["AVERAGE_DIRECTOR_AGE"]: <AverageDirectorAge />,
+  ["DIRECTOR_OWNED_COMPANY_COUNT"]: <DirectorOwnedCompanyCount />,
+  ["TOP_DIRECTOR_LOCATION"]: <TopDirectorLocation />,
+  ["MOST_POPULAR_NAME"]: <MostPopularName />,
+  ["SSGM_PERFORMANCE_CHART"]: <SSGMPerformanceChart />
 }
 
 const getCurrentStatisticComponent = (currentStatistic: any) => {
@@ -18,7 +41,7 @@ const getCurrentStatisticComponent = (currentStatistic: any) => {
 const Home: NextPage = () => {
 
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [currentStatistic, setCurrentStatistic] = useState(null)
+  const [currentStatistic, setCurrentStatistic]: any = useState(null)
  
 
   useEffect(() => {
@@ -51,6 +74,7 @@ const Home: NextPage = () => {
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
+        onClose={closeModal}
         style={{maxWidth: 800, maxHeight: "70vh", zIndex: 9999}}
         contentLabel="Example Modal"
         shouldCloseOnOverlayClick
@@ -68,37 +92,37 @@ const Home: NextPage = () => {
           <div style={{height: 1}} className='w-full bg-gray-600' />
           <h1 className='py-2'>Companies</h1>
           <p onClick={() => setCurrentStatistic("MOST_POPPING_SIC_CODES")} className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>1</span> <span>Most popular SIC Codes</span></p>
-          <p className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>2</span> <span>SIC popularity Timeline</span></p>
-          <p className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>3</span> <span>Ember Grade System Breakdown</span></p>
-          <p className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>4</span> <span>Company Formation Occurence Rate</span></p>
+          <p onClick={() => setCurrentStatistic("SIC_TIMELANE_CHART")} className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>2</span> <span>SIC popularity Timeline</span></p>
+          <p onClick={() => setCurrentStatistic("EMBER_GRADE_BREAKDOWN")} className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>3</span> <span>Ember Grade System Breakdown</span></p>
+          <p onClick={() => setCurrentStatistic("COMPANY_FORMATION_BREAKDOWN")} className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>4</span> <span>Company Formation Occurence Rate</span></p>
         </div>
         <div className='w-1/4 flex flex-col'>
           <div style={{height: 1}} className='w-full bg-gray-600' />
           <h1 className='py-2'>Ember</h1>
-          <p className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>1</span> <span>Most popular SIC Codes (Active Users)</span></p>
+          <p onClick={() => setCurrentStatistic("EMBER_SIC_BREAKDOWN")} className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>1</span> <span>Most popular SIC Codes (Active Users)</span></p>
         </div>
         <div className='w-1/4 flex flex-col'>
           <div style={{height: 1}} className='w-full bg-gray-600' />
           <h1 className='py-2'>Campaigns</h1>
           <p onClick={() => setCurrentStatistic("COST_COMPARISON")} className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>1</span> <span>Cost Comparison Treemap</span></p>
-          <p className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>2</span> <span>Widest Reaching</span></p>
-          <p className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>3</span> <span>Highest Costing</span></p>
-          <p className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>4</span> <span>Top Performing</span></p>
+          <p onClick={() => setCurrentStatistic("CAMPAIGN_SIZE_BREAKDOWN")} className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>2</span> <span>Widest Reaching</span></p>
+          <p onClick={() => setCurrentStatistic("CAMPAIGN_COST_BREAKDOWN")} className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>3</span> <span>Highest Costing</span></p>
+          <p onClick={() => setCurrentStatistic("TOP_PERFORMING_CAMPAIGNS")} className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>4</span> <span>Top Performing</span></p>
         </div>
       </div>
       <div className='flex justify-around my-12'>
       <div className='w-1/4 flex flex-col'>
           <div style={{height: 1}} className='w-full bg-gray-600' />
           <h1 className='py-2'>Directors</h1>
-          <p className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>1</span> <span>Average Age of A/B Grade Directors</span></p>
-          <p className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>2</span> <span>Directors with Multiple Companies</span></p>
-          <p className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>3</span> <span>Top Locations</span></p>
+          <p onClick={() => setCurrentStatistic("AVERAGE_DIRECTOR_AGE")} className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>1</span> <span>Average Age of A/B Grade Directors</span></p>
+          <p onClick={() => setCurrentStatistic("DIRECTOR_OWNED_COMPANY_COUNT")} className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>2</span> <span>Directors with Multiple Companies</span></p>
+          <p onClick={() => setCurrentStatistic("TOP_DIRECTOR_LOCATION")} className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>3</span> <span>Top Locations</span></p>
         </div>
         <div className='w-1/4 flex flex-col'>
           <div style={{height: 1}} className='w-full bg-gray-600' />
           <h1 className='py-2'>Memes</h1>
-          <p className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>1</span> <span>Most Common Name</span></p>
-          <p className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>2</span> <span>SSGM Search Performance</span></p>
+          <p onClick={() => setCurrentStatistic("MOST_POPULAR_NAME")} className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>1</span> <span>Most Common Name</span></p>
+          <p onClick={() => setCurrentStatistic("SSGM_PERFORMANCE_CHART")} className='py-3 flex text-xl font-light hover:text-red-400 cursor-pointer'><span className='font-normal pr-6'>2</span> <span>SSGM Search Performance</span></p>
         </div>
       </div>
     </div>
