@@ -1,0 +1,8 @@
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 1000 1000"
+ preserveAspectRatio="xMidYMid meet">
+<g fill="#007bff" stroke="none">
+<path d="M0 400 A 400 400 0 0 1 400 0 L 1000 0 L 1000 200 L 400 200 A 200 200 0 0 0 200 400 L 200 600 A 200 200 0 0 0 400 800 L 1000 800 L 1000 1000 L 400 1000 A 400 400 0 0 1 0 600 L 0 400Z" />
+<path d="M400 470 A 70 70 0 0 1 470 400 L 1000 400 L 1000 600 L 470 600 A 70 70 0 0 1 400 530 L 400 470Z" />
+</g>
+</svg>
