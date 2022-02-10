@@ -1,28 +1,28 @@
-import  { useState, useLayoutEffect, useEffect } from 'react';
+import { useState, useLayoutEffect, useEffect } from 'react';
 import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 import axios from 'axios';
 
-const BarChart = ({idName, campaign}: any) => {
+const BarChart = ({ idName, campaign }: any) => {
 
   const [data, setData] = useState("")
 
-  
+
   useEffect(() => {
-    if(campaign){
+    if (campaign) {
       // @ts-ignore
-    async function getCampaign() {
-      const data = await axios.post(`/api/stats/director-age`, {
-        campaign_id: campaign
-      });
-  
-      setData(data.data);
+      async function getCampaign() {
+        const data = await axios.post(`/api/stats/director-age`, {
+          campaign_id: campaign
+        });
+
+        setData(data.data);
+      }
+      getCampaign();
     }
-    getCampaign();
-  }
   }, [campaign]);
-  
+
 
   useLayoutEffect(() => {
 
@@ -32,14 +32,14 @@ const BarChart = ({idName, campaign}: any) => {
       am5themes_Animated.new(root)
     ]);
 
-    let chart = root.container.children.push( 
+    let chart = root.container.children.push(
       am5xy.XYChart.new(root, {
         panY: false,
         layout: root.verticalLayout
-      }) 
+      })
     );
 
-   
+
 
     // Create Y-axis
     let yAxis = chart.yAxes.push(
@@ -51,7 +51,7 @@ const BarChart = ({idName, campaign}: any) => {
     // Create X-Axis
     let xAxis = chart.xAxes.push(
       am5xy.CategoryAxis.new(root, {
-    renderer: am5xy.AxisRendererX.new(root, {}),
+        renderer: am5xy.AxisRendererX.new(root, {}),
         categoryField: "category"
       })
     );
@@ -69,7 +69,7 @@ const BarChart = ({idName, campaign}: any) => {
         fill: am5.color(0xF96277)
       })
     );
-     // @ts-ignore
+    // @ts-ignore
     series1.data.setAll(data);
 
 
@@ -86,9 +86,9 @@ const BarChart = ({idName, campaign}: any) => {
   }, [data]);
 
   return (
-  <div className='flex w-full space-y-4 flex-col items-start'>
-    <div id={idName} style={{ width: "100%", height: "70vh" }}></div>
-  </div>)
+    <div className='flex w-full space-y-4 flex-col items-start'>
+      <div id={idName} style={{ width: "100%", height: "60vh" }}></div>
+    </div>)
 }
 
 export default BarChart

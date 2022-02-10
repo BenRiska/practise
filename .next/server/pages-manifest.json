@@ -2,7 +2,8 @@
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
-  "/api/stats/campaign-cost-breakdown": "pages/api/stats/campaign-cost-breakdown.js",
-  "/api/stats/campaign-cost": "pages/api/stats/campaign-cost.js",
-  "/api/stats/top-performing-campaigns": "pages/api/stats/top-performing-campaigns.js"
+  "/api/campaigns/all": "pages/api/campaigns/all.js",
+  "/api/status": "pages/api/status.js",
+  "/api/campaigns/leads/all": "pages/api/campaigns/leads/all.js",
+  "/status": "pages/status.js"
 }

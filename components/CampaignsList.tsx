@@ -47,18 +47,19 @@ const CampaignsList = ({ campaigns, filter, setFilter }: any) => {
       <div style={{ flex: 0.3 }} className="font-semibold">Cost</div>
       <div style={{ flex: 0.3 }} className="font-semibold">Status</div>
     </div>
-    {campaigns.filter((campaign: any) => activeFilter === "ALL" ? true : activeFilter === "MAIL" ? campaign.type === "DIRECT_MAIL" : campaign.type === "LEMLIST").filter((campaign: any) => filter.length > 0 ? campaign.name.toLowerCase().includes(filter.toLowerCase()) : true).map((campaign: any) => <Link href={`/campaigns/${campaign.name}`}>
-      <div className="flex flex-1 py-4 items-center relative text-sm lead-item text-gray-500 hover:text-black">
-        <div style={{ flex: 0.3 }} className="font-lighter text-red-400">{campaign.name}</div>
-        <div style={{ flex: 0.3 }} className="font-lighter">{campaign.type}</div>
-        <div style={{ flex: 0.3 }} className="font-lighter">{campaign.companyCampaigns?.length}</div>
-        <div style={{ flex: 0.3 }} className={`font-lighter `}>{campaign.campaignCost
-          ? `£${(campaign.campaignCost * campaign.companyCampaigns.length).toFixed(2)}`
-          : "N/A"}
+    {campaigns.filter((campaign: any) => activeFilter === "ALL" ? true : activeFilter === "MAIL" ? campaign.type === "DIRECT_MAIL" : campaign.type === "LEMLIST").filter((campaign: any) => filter.length > 0 ? campaign.name.toLowerCase().includes(filter.toLowerCase()) : true).map((campaign: any) =>
+      <Link href={`/campaigns/${campaign.name}`}>
+        <div className="flex flex-1 py-4 items-center relative text-sm lead-item text-gray-500 hover:text-black">
+          <div style={{ flex: 0.3 }} className="font-lighter text-red-400">{campaign.name}</div>
+          <div style={{ flex: 0.3 }} className="font-lighter">{campaign.type}</div>
+          <div style={{ flex: 0.3 }} className="font-lighter">{campaign.companyCampaigns?.length}</div>
+          <div style={{ flex: 0.3 }} className={`font-lighter `}>{campaign.campaignCost
+            ? `£${(campaign.campaignCost * campaign.companyCampaigns.length).toFixed(2)}`
+            : "N/A"}
+          </div>
+          <div style={{ flex: 0.3 }}>{getStatusText(campaign?.status)}</div>
         </div>
-        <div style={{ flex: 0.3 }}>{getStatusText(campaign?.status)}</div>
-      </div>
-    </Link>)
+      </Link>)
     }
   </div >
 }
