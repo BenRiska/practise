@@ -30,21 +30,6 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/campaigns": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/campaigns.js"
-    ],
-    "/campaigns/leads": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/campaigns/leads.js"
-    ],
-    "/statistics": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/statistics.js"
-    ],
     "/status": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

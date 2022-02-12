@@ -36,6 +36,7 @@
     "react-dom": "17.0.2",
     "react-inline-editing": "^1.0.10",
     "react-modal": "^3.14.4",
+    "react-spinners-css": "^2.0.1",
     "title": "^3.4.3"
   },
   "devDependencies": {
@@ -46,7 +47,7 @@
     "@typescript-eslint/eslint-plugin": "^4.28.2",
     "@typescript-eslint/parser": "^4.28.2",
     "autoprefixer": "^10.4.0",
-    "eslint": "8.4.1",
+    "eslint": "^8.9.0",
     "eslint-config-next": "12.0.7",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",

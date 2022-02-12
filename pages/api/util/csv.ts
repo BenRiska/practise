@@ -6,7 +6,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { campaign_id }: any = req.body;
 
   let companies = await prisma.campaign.findFirst({
-    where: {id: campaign_id},
+    where: { id: campaign_id },
     include: {
       companyCampaigns: {
         include: {
@@ -21,10 +21,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     }
   })
 
- 
-
-  let directorList = companies?.companyCampaigns?.map(
-    ({company}: any) => ({
+  let directorList: any = companies?.companyCampaigns?.map(
+    ({ company }: any) => ({
       firstName: company?.directors[0]?.firstName,
       lastName: company?.directors[0]?.lastName,
       contactEmail: company?.directors[0]?.contactEmail,
@@ -38,7 +36,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   );
 
   if (directorList?.length > 0) {
-    console.log(directorList)
     const fields = Object.keys(directorList[0]);
     const replacer = (key, value) => (value === null ? "" : value);
     const csv = directorList.map(row =>

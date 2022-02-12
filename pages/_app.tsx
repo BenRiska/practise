@@ -4,14 +4,12 @@ import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
 import React, { useEffect, useState } from "react";
 import Menu from "../components/Menu"
 import Sidebar from "../components/Sidebar"
-import DropdownMenu from "../components/DropdownMenu"
+import DropdownMenu from "../components/charts/DropdownMenu"
 import { motion, AnimatePresence } from 'framer-motion';
 
 
 const AuthenticatedComponent = ({ children }: any) => {
-  const { isLoading, isAuthenticated, loginWithRedirect, user, logout }: any =
-    useAuth0();
-
+  const { isLoading, isAuthenticated, loginWithRedirect, user, logout }: any = useAuth0();
   const [menuOpen, setMenuOpen] = useState(false)
   const [dropdownMenuOpen, setDropdownMenuOpen] = useState(false)
 

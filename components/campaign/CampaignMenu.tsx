@@ -2,41 +2,25 @@ import UploadFileIcon from '@mui/icons-material/UploadFile';
 import GroupsIcon from '@mui/icons-material/Groups';
 import axios from 'axios';
 import EditableLabel from 'react-inline-editing';
-import Axios from 'axios'
-import getCampaignType from "../utils/getCampaignType"
+import getCampaignType from "../../utils/getCampaignType"
+import downloadCsv from '../../utils/downloadCsv';
 
-const downloadCsv = (string) => {
-  var blob = new Blob([string]);
-  if (window.navigator.msSaveOrOpenBlob) {
-    window.navigator.msSaveBlob(blob, "filename.csv");
-  } else {
-    var a = window.document.createElement("a");
-
-    a.href = window.URL.createObjectURL(blob);
-    a.download = "leads.csv";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  }
-}
 
 const CampaignMenu = ({ campaign, setCampaign }: any) => {
 
   async function downloadLeadList() {
-    console.log("hit")
-    const csv = await axios.post(`/api/util/csv`, {
+    const { data } = await axios.post(`/api/util/csv`, {
       campaign_id: campaign?.id
     });
-    downloadCsv(csv.data);
+    downloadCsv(data);
   }
 
   const updateCampaignName = async (text: any) => {
-    console.log("hit")
-    const data = await Axios.post(`/api/util/updateCampaignName`, {
+    const { data } = await axios.post(`/api/util/updateCampaignName`, {
       campaign_id: campaign.id,
       name: text
     });
-    setCampaign(data.data);
+    setCampaign(data);
   }
   return <div>
     <div className="flex justify-between mt-4">
@@ -57,7 +41,7 @@ const CampaignMenu = ({ campaign, setCampaign }: any) => {
           <p className="text-xl text-white">£{campaign?.campaignCost ? (campaign.campaignCost * campaign._count.companyCampaigns).toFixed(2) : "0"}</p>
         </div>
         <div className="flex ml-4 h-10 relative items-center px-4 justify-center bg-yellow-300 w-36 rounded-lg">
-          <span className="absolute text-xs text-yellow-300 bottom-10 left-0">COST PER AQUISITION</span>
+          <span className="absolute text-xs text-yellow-300 bottom-10 left-0">COST PER ACQUISITION</span>
           <p className="text-xl text-white">£347.34</p>
         </div>
       </div>

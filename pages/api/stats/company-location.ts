@@ -7,10 +7,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   const { campaign_id }: any = req.body;
 
-  
-
   let locations: any = await prisma.companyCampaign.findMany({
-    where: {campaignId: campaign_id},
+    where: { campaignId: campaign_id },
     select: {
       company: {
         select: {
@@ -26,20 +24,20 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   locations = locations.map((location: any) => location.company.registeredAddress.locality)
 
- 
-  const counts = {};
+
+  const counts: any = {};
 
   for (const num of locations) {
     counts[num] = counts[num] ? counts[num] + 1 : 1;
   }
 
-  let data = [];
+  let data: any = [];
 
-  Object.keys(counts).find(key => {  
-    data.push({network: key, value: counts[key] })
+  Object.keys(counts).find(key => {
+    data.push({ network: key, value: counts[key] })
   })
 
 
- 
+
   res.json(data.slice(0, 20));
 };

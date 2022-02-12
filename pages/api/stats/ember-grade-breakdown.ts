@@ -2,29 +2,25 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../../services/prisma";
 
-
-
-
 export default async (req: NextApiRequest, res: NextApiResponse) => {
 
-
-   const aGradeCompanies: any = await prisma.company.count({
-   where: {
-     grade: "A"
-   }
+  const aGradeCompanies: any = await prisma.company.count({
+    where: {
+      grade: "A"
+    }
   })
 
   const bGradeCompanies: any = await prisma.company.count({
     where: {
       grade: "B"
     }
-   })
+  })
 
-   const screenGradeCompanies: any = await prisma.company.count({
+  const screenGradeCompanies: any = await prisma.company.count({
     where: {
       grade: "SCREEN"
     }
-   })
+  })
 
   let data = [{
     category: "A Grade",
@@ -37,6 +33,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     value: screenGradeCompanies
   }]
 
- 
   res.json(data);
 };

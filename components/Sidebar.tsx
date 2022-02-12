@@ -14,7 +14,7 @@ const Sidebar = ({ menuOpen, setMenuOpen, logout }: any) => {
 
   const { pathname, replace } = useRouter();
 
-  const handleClickOutside = (event: any) => {
+  const closeSideBar = (event: any) => {
     // @ts-ignore
     if (ref.current && !ref.current.contains(event.target)) {
       setMenuOpen(false)
@@ -22,9 +22,9 @@ const Sidebar = ({ menuOpen, setMenuOpen, logout }: any) => {
   };
 
   useEffect(() => {
-    document.addEventListener('click', handleClickOutside, true);
+    document.addEventListener('click', closeSideBar, true);
     return () => {
-      document.removeEventListener('click', handleClickOutside, true);
+      document.removeEventListener('click', closeSideBar, true);
     };
   });
 

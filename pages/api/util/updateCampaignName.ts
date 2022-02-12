@@ -21,8 +21,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     }
   });
 
-  console.log(campaign)
-
   if (!campaign) return;
 
   res.json(campaign);

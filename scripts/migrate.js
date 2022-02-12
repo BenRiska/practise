@@ -6,12 +6,12 @@ const throat = require("throat");
 const run = async () => {
   await prisma.$connect();
   // migration script here
-  let companies = await prisma.company.findMany({
+  let companiesWithAddress = await prisma.company.findMany({
     where: { isAddressUnique: null }
   });
 
   await Promise.all(
-    companies.map(
+    companiesWithAddress.map(
       throat(1, async company => {
         // wait for 100ms to not hit timeout
         company = await prisma.company.findUnique({
@@ -22,8 +22,6 @@ const run = async () => {
             }
           }
         });
-
-        console.log(Date.now().toLocaleString(), company.id);
 
         if (company.registeredAddress.companies.length === 1) {
           await prisma.company.update({

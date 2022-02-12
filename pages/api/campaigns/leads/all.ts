@@ -4,9 +4,9 @@ import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../../../services/prisma";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const {page, filter} = req.body
-  const {age, locations, classifications, address, email, linkedin} = filter;
-  
+  const { page, filter } = req.body
+  const { age, locations, classifications, address, email, linkedin } = filter;
+
   const skip = parseInt(page) * 30;
   const companies = await prisma.company.findMany({
     where: {
@@ -16,13 +16,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         some: {
           ...(linkedin
             ? {
-                linkedinId: { not: null }
-              }
+              linkedinId: { not: null }
+            }
             : {}),
           ...(email
             ? {
-                contactEmail: { not: null }
-              }
+              contactEmail: { not: null }
+            }
             : {}),
           dateOfBirth: {
             lt: moment().subtract(age.min, "years").toDate(),
@@ -33,24 +33,24 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       registeredAddress: {
         ...(locations.length > 0
           ? {
-              locality: { in: locations }
-            }
+            locality: { in: locations }
+          }
           : {})
       },
       ...(classifications.length > 0
         ? {
-            OR: classifications.map((code: any) => ({
-              industries: {
-                equals: [code]
-              }
-            }))
-          }
-        : {}),
-        ...(address
-          ? {
-              isAddressUnique: true
+          OR: classifications.map((code: any) => ({
+            industries: {
+              equals: [code]
             }
-          : {})
+          }))
+        }
+        : {}),
+      ...(address
+        ? {
+          isAddressUnique: true
+        }
+        : {})
     },
     include: {
       directors: {
@@ -76,7 +76,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     take: 30
   });
 
-
-
-  res.json({companies});
+  res.json({ companies });
 };

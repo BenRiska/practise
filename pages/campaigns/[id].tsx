@@ -4,13 +4,10 @@ import Head from 'next/head'
 import { useRouter } from "next/router";
 import { useEffect } from "react"
 import Axios from 'axios'
-import CampaignMenu from '../../components/CampaignMenu';
-import CampaignDetailCards from '../../components/CampaignDetailCards';
-import DirectorAgeChart from '../../components/DirectorAgeChart';
-import CompanyLocationChart from '../../components/CompanyLocationChart';
-import CampaignCostChart from "../../components/CampaignCostChart"
-
-
+import CampaignMenu from '../../components/campaign/CampaignMenu';
+import DirectorAgeChart from '../../components/charts/DirectorAgeChart';
+import CompanyLocationChart from '../../components/charts/CompanyLocationChart';
+import CampaignCostChart from "../../components/charts/CampaignCostChart"
 
 
 const Campaign: NextPage = () => {
@@ -18,10 +15,6 @@ const Campaign: NextPage = () => {
   const { id } = router.query;
   const [campaign, setCampaign] = useState(null);
   const [activeFilter, setActiveFilter] = useState("COMPANY_LOCATION")
-
-
-
-
 
   useEffect(() => {
     async function getCampaign() {
@@ -58,17 +51,14 @@ const Campaign: NextPage = () => {
       </div>
       <div className='flex flex-col justify-between mt-4 w-full'>
         {activeFilter === "COMPANY_LOCATION" && <>
-          <h1 className='text-4xl text-center mt-4 mb-4'>Top Locations</h1>
           {/* @ts-ignore*/}
           <CompanyLocationChart idName="chart2" campaign={campaign?.id} />
         </>}
         {activeFilter === "DIRECTOR_AGE" && <>
-          <h1 className='text-4xl text-center mt-4 mb-8'>Average Director Age</h1>
           {/* @ts-ignore*/}
           <DirectorAgeChart idName="chart1" campaign={campaign?.id} />
         </>}
         {activeFilter === "CAMPAIGN_COST" && <>
-          <h1 className='text-4xl text-center mt-0 mb-8'>Cost Comparison</h1>
           {/* @ts-ignore*/}
           <CampaignCostChart idName="chart3" campaign={campaign?.id} />
         </>}

@@ -11,54 +11,54 @@ const sixtyYearsAgo = moment().subtract("60", "years").toISOString()
 const oneHundredYearsAgo = moment().subtract("100", "years").toISOString()
 
 
-const dates = [{before: sixteenYearsAgo, after: thirtyYearsAgo, key: "16-30"},
-{before: thirtyYearsAgo, after: fortyYearsAgo, key: "30-40"},
-{before: fortyYearsAgo, after: fiftyYearsAgo, key: "40-50"},
-{before: fiftyYearsAgo, after: sixtyYearsAgo, key: "50-60"},
-{before: sixtyYearsAgo, after: oneHundredYearsAgo, key: "60+"},]
-
-
+const dates = [{ before: sixteenYearsAgo, after: thirtyYearsAgo, key: "16-30" },
+{ before: thirtyYearsAgo, after: fortyYearsAgo, key: "30-40" },
+{ before: fortyYearsAgo, after: fiftyYearsAgo, key: "40-50" },
+{ before: fiftyYearsAgo, after: sixtyYearsAgo, key: "50-60" },
+{ before: sixtyYearsAgo, after: oneHundredYearsAgo, key: "60+" },]
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
 
-  let data: any = {"16-30": {
-    value: 0,
-    subData: [
-      { category: "A Grade", value: 0 },
-      { category: "B Grade", value: 0 },
-      { category: "Non-targetable", value: 0 }
-    ]
-  }, "30-40":{
-    value: 0,
-    subData: [
-      { category: "A Grade", value: 0 },
-      { category: "B Grade", value: 0 },
-      { category: "Non-targetable", value: 0 }
-    ]
-  }, "40-50":{
-    value: 0,
-    subData: [
-      { category: "A Grade", value: 0 },
-      { category: "B Grade", value: 0 },
-      { category: "Non-targetable", value: 0 }
-    ]
-  }, 
-  "50-60":{
-    value: 0,
-    subData: [
-      { category: "A Grade", value: 0 },
-      { category: "B Grade", value: 0 },
-      { category: "Non-targetable", value: 0 }
-    ]
-  }, 
-  "60+":{
-    value: 0,
-    subData: [
-      { category: "A Grade", value: 0 },
-      { category: "B Grade", value: 0 },
-      { category: "Non-targetable", value: 0 }
-    ]
-  }}
+  let data: any = {
+    "16-30": {
+      value: 0,
+      subData: [
+        { category: "A Grade", value: 0 },
+        { category: "B Grade", value: 0 },
+        { category: "Non-targetable", value: 0 }
+      ]
+    }, "30-40": {
+      value: 0,
+      subData: [
+        { category: "A Grade", value: 0 },
+        { category: "B Grade", value: 0 },
+        { category: "Non-targetable", value: 0 }
+      ]
+    }, "40-50": {
+      value: 0,
+      subData: [
+        { category: "A Grade", value: 0 },
+        { category: "B Grade", value: 0 },
+        { category: "Non-targetable", value: 0 }
+      ]
+    },
+    "50-60": {
+      value: 0,
+      subData: [
+        { category: "A Grade", value: 0 },
+        { category: "B Grade", value: 0 },
+        { category: "Non-targetable", value: 0 }
+      ]
+    },
+    "60+": {
+      value: 0,
+      subData: [
+        { category: "A Grade", value: 0 },
+        { category: "B Grade", value: 0 },
+        { category: "Non-targetable", value: 0 }
+      ]
+    }
+  }
 
 
   for (const date of dates) {
@@ -106,13 +106,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     const totalCount = aGradeDirectors + bGradeDirectors + screenGradeDirectors;
 
-    console.log(date.key, aGradeDirectors, bGradeDirectors, screenGradeDirectors)
-  
-        data[date.key].value = totalCount
-        data[date.key].subData[0].value = aGradeDirectors;
-        data[date.key].subData[1].value = bGradeDirectors;
-        data[date.key].subData[2].value = screenGradeDirectors;
-    
+    data[date.key].value = totalCount
+    data[date.key].subData[0].value = aGradeDirectors;
+    data[date.key].subData[1].value = bGradeDirectors;
+    data[date.key].subData[2].value = screenGradeDirectors;
+
   }
 
   let newData = [
@@ -143,7 +141,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     }
   ]
 
-  console.log(newData)
- 
   res.json(newData);
 };

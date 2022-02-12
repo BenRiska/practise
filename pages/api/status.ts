@@ -2,27 +2,10 @@
 import moment from "moment";
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../services/prisma";
+import getServiceName from "../../utils/getServiceName";
 
-const getServiceName = (name: any) => {
-  switch(name) {
-    case "COMPANIES_HOUSE":
-      return "Companies House"
-    case "LEMLIST": 
-      return "Lemlist"
-    case "PHANTOMBUSTER":
-      return "Phantom Buster"
-    case "DUX_SOUP":
-      return "Dux Soup"
-    case "STANNP":
-      return "Stannp"
-    default:
-      return name
-  }
-}
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-
-  
 
   const services = await prisma.services.findMany({
     include: {
@@ -35,19 +18,19 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     }
   });
 
-  let newData: any = [];
+  let data: any = [];
 
   services.forEach(service => {
     service.pings.forEach(ping => {
       let item = {
         category: getServiceName(service.service),
         start: new Date(ping.createdAt).getTime(),
-        end:  new Date(moment(ping.createdAt).add("10", "minutes").toISOString()).getTime(),
+        end: new Date(moment(ping.createdAt).add("10", "minutes").toISOString()).getTime(),
         task: ping.error || "No Information Available"
       }
-      newData.push(item)
+      data.push(item)
     })
-  }) 
- 
-  res.json(newData);
+  })
+
+  res.json(data);
 };
