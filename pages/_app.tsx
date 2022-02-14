@@ -8,10 +8,10 @@ import DropdownMenu from "../components/charts/DropdownMenu"
 import { motion, AnimatePresence } from 'framer-motion';
 
 
-const AuthenticatedComponent = ({ children }: any) => {
+const AuthenticatedComponent: React.FC = ({ children }: any) => {
   const { isLoading, isAuthenticated, loginWithRedirect, user, logout }: any = useAuth0();
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [dropdownMenuOpen, setDropdownMenuOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState<boolean>(false)
+  const [dropdownMenuOpen, setDropdownMenuOpen] = useState<boolean>(false)
 
   useEffect(() => {
     if (!isLoading && !isAuthenticated) {
@@ -45,8 +45,8 @@ const AuthenticatedComponent = ({ children }: any) => {
   );
 };
 
-function MyApp({ Component, pageProps }: AppProps) {
-  const [isLoaded, setLoaded] = useState(false);
+const MyApp = ({ Component, pageProps }: AppProps) => {
+  const [isLoaded, setLoaded] = useState<boolean>(false);
   useEffect(() => {
     setLoaded(true);
   }, []);

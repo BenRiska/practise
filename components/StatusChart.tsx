@@ -4,12 +4,12 @@ import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 import axios from 'axios';
 
-const StatusChart = () => {
+const StatusChart: React.FC = () => {
 
-  const [data, setData] = useState([])
+  const [data, setData] = useState<[]>([])
 
   useEffect(() => {
-    async function getStatusData() {
+    async function getStatusData(): Promise<void> {
       const data = await axios.post(`/api/status`);
       setData(data.data);
     }

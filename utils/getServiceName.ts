@@ -1,5 +1,5 @@
 
-const getServiceName = (name: any) => {
+const getServiceName = (name: string): string => {
   switch (name) {
     case "COMPANIES_HOUSE":
       return "Companies House"

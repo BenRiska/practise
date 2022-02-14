@@ -3,10 +3,32 @@ import Head from 'next/head'
 import CreateCampaignForm from '../../components/charts/CreateCampaignForm'
 import { useState } from "react"
 
+type ICampaignForm = {
+  type: string;
+  name: string;
+  template: number | null;
+  lemlistName: string;
+  lemlistId: string;
+  leadFilters: {
+    localities: [];
+    classifications: [];
+    take: number | null;
+    ageRange: {
+      min: number | null;
+      max: number | null;
+    };
+    companyAge: {
+      min: number | null;
+      max: number | null;
+    },
+    required: { email: boolean; linkedin: boolean; address: boolean; }
+  }
+}
 
-const Campaigns: NextPage = () => {
 
-  const [campaignState, setCampaignState] = useState(
+const CreateCampaign: NextPage = () => {
+
+  const [campaignState, setCampaignState] = useState<ICampaignForm>(
     {
       type: "",
       name: "",
@@ -23,7 +45,7 @@ const Campaigns: NextPage = () => {
       }
     })
 
-  const createCampaign = (name: any) => {
+  const createCampaign = (name: string) => {
     setCampaignState({ ...campaignState, name })
   }
 
@@ -42,4 +64,4 @@ const Campaigns: NextPage = () => {
   )
 }
 
-export default Campaigns
+export default CreateCampaign

@@ -1,5 +1,5 @@
-const getPageName = (route: string) => {
-  switch (route){
+const getPageName = (route: string): string => {
+  switch (route) {
     case "/":
       return "Home"
     case "/campaigns":
@@ -8,7 +8,7 @@ const getPageName = (route: string) => {
       return "Leads"
     case "/statistics":
       return "Statistics"
-    default: 
+    default:
       return "SSGM"
   }
 }

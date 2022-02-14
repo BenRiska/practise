@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useEffect, useState } from "react"
+import React, { ReactElement, useEffect, useState } from "react"
 import CampaignCostChart from '../components/charts/CampaignCostChart';
 import MostPoppingSICCodes from '../components/charts/MostPoppingSICCodes';
 import SicPopularityTimeline from "../components/charts/SicPopularityTimeline"
@@ -18,7 +18,24 @@ import SSGMPerformanceChart from '../components/charts/SSGMPerformanceChart';
 import CloseIcon from '@mui/icons-material/Close';
 import { AnimatePresence, motion } from 'framer-motion';
 
-const StatisticMap: any = {
+type IStatisticMap = {
+  ["COST_COMPARISON"]: ReactElement<any, any>,
+  ["MOST_POPPING_SIC_CODES"]: ReactElement<any, any>,
+  ["SIC_TIMELANE_CHART"]: ReactElement<any, any>,
+  ["EMBER_GRADE_BREAKDOWN"]: ReactElement<any, any>,
+  ["COMPANY_FORMATION_BREAKDOWN"]: ReactElement<any, any>,
+  ["EMBER_SIC_BREAKDOWN"]: ReactElement<any, any>,
+  ["CAMPAIGN_SIZE_BREAKDOWN"]: ReactElement<any, any>,
+  ["CAMPAIGN_COST_BREAKDOWN"]: ReactElement<any, any>,
+  ["TOP_PERFORMING_CAMPAIGNS"]: ReactElement<any, any>,
+  ["AVERAGE_DIRECTOR_AGE"]: ReactElement<any, any>,
+  ["DIRECTOR_OWNED_COMPANY_COUNT"]: ReactElement<any, any>,
+  ["TOP_DIRECTOR_LOCATION"]: ReactElement<any, any>,
+  ["MOST_POPULAR_NAME"]: ReactElement<any, any>,
+  ["SSGM_PERFORMANCE_CHART"]: ReactElement<any, any>
+}
+
+const StatisticMap: IStatisticMap = {
   ["COST_COMPARISON"]: <CampaignCostChart idName="chart" campaign={1} />,
   ["MOST_POPPING_SIC_CODES"]: <MostPoppingSICCodes />,
   ["SIC_TIMELANE_CHART"]: <SicPopularityTimeline />,
@@ -35,11 +52,12 @@ const StatisticMap: any = {
   ["SSGM_PERFORMANCE_CHART"]: <SSGMPerformanceChart />
 }
 
-const getCurrentStatisticComponent = (currentStatistic: any) => {
+const getCurrentStatisticComponent = (currentStatistic: any): React.FC => {
+  // @ts-ignore
   return StatisticMap[currentStatistic]
 }
 
-const Home: NextPage = () => {
+const Statistics: NextPage = () => {
 
   const [modalIsOpen, setIsOpen] = useState(false);
   const [currentStatistic, setCurrentStatistic]: any = useState(null)
@@ -115,4 +133,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default Statistics

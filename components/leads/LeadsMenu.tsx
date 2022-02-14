@@ -56,19 +56,8 @@ const LeadsMenu = ({ filter, adjustFilter }: any) => {
         <p>Location</p>
         <ArrowDropDownIcon />
         {locationMenuOpen &&
-          <Popup setPopupOpen={setLocationMenuOpen} style={{ bottom: -115, width: 150 }} className={'absolute h-40 bottom-0 flex flex-col left-0 right-0 rounded-md shadow z-30 bg-white'}>
-            <h2 className='px-4 py-4'>Locations</h2>
-            <input className='shadow rounded' value={locationInput} onChange={e => setLocationInput(e.currentTarget.value)} onKeyPress={e => handleLocationInput(e)} type="text" />
-            <div>
-              {filter.locations.map((code: any, i: number) => (
-                <div
-                  key={i}
-                  onClick={() => adjustFilter("locations", filter.locations.filter((c: any) => c !== code))}
-                >
-                  {code}
-                </div>
-              ))}
-            </div>
+          <Popup setPopupOpen={setLocationMenuOpen} style={{ bottom: -50, width: 200 }} className={'absolute bottom-0 flex h-12 flex-col left-0 right-0 rounded-md shadow z-30 bg-white'}>
+            <input className='shadow rounded text-2xl outline-red-400 h-12' value={locationInput} onChange={e => setLocationInput(e.currentTarget.value)} onKeyPress={e => handleLocationInput(e)} type="text" />
           </Popup>
         }
       </div>
@@ -76,19 +65,8 @@ const LeadsMenu = ({ filter, adjustFilter }: any) => {
         <p>Classification</p>
         <ArrowDropDownIcon />
         {classMenuOpen &&
-          <Popup setPopupOpen={setClassMenuOpen} style={{ bottom: -188, width: 200 }} className={'absolute space-y-4 p-4 bottom-0 flex flex-col left-0 right-0 rounded-md shadow z-30 bg-white'}>
-            <h2 className='px-4 py-4'>Class</h2>
-            <input className='shadow rounded' value={classInput} onChange={e => setClassInput(e.currentTarget.value)} onKeyPress={e => handleClassInput(e)} type="text" />
-            <div>
-              {filter.classifications.map((code: any, i: number) => (
-                <div
-                  key={i}
-                  onClick={() => adjustFilter("classifications", filter.classifications.filter((c: any) => c !== code))}
-                >
-                  {code}
-                </div>
-              ))}
-            </div>
+          <Popup setPopupOpen={setClassMenuOpen} style={{ bottom: -50, width: 200 }} className={'absolute h-12 bottom-0 flex flex-col left-0 right-0 rounded-md shadow z-30 bg-white'}>
+            <input className='shadow rounded text-2xl outline-red-400 h-12' value={classInput} onChange={e => setClassInput(e.currentTarget.value)} onKeyPress={e => handleClassInput(e)} type="text" />
           </Popup>
         }
       </div>

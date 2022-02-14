@@ -10,8 +10,8 @@ import { useRouter } from 'next/router';
 const Campaigns: NextPage = () => {
 
   const { replace } = useRouter();
-  const [campaigns, setCampaigns] = useState([])
-  const [filter, setFilter] = useState("")
+  const [campaigns, setCampaigns] = useState<[]>([])
+  const [filter, setFilter] = useState<string>("")
 
   const getData = async () => {
     const { data } = await Axios.get(`api/campaigns/all`);

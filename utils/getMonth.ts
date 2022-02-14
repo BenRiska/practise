@@ -1,4 +1,4 @@
-const getMonth = (month: any) => {
+const getMonth = (month: number): string | void => {
   switch (month) {
     case 1:
       return "Feb"

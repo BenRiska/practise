@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useState } from "react"
 
-const getStatusText = (status: any) => {
+const getStatusText = (status: string): string => {
   switch (status) {
     case "READY":
       return "Draft"
@@ -14,9 +14,9 @@ const getStatusText = (status: any) => {
   }
 }
 
-const CampaignsList = ({ campaigns, filter, setFilter }: any) => {
+const CampaignsList: React.FC = ({ campaigns, filter, setFilter }: any) => {
 
-  const [activeFilter, setActiveFilter] = useState("ALL")
+  const [activeFilter, setActiveFilter] = useState<string>("ALL")
 
   return <div className="mx-auto">
     <div className="flex py-2" style={{ borderBottom: "2px solid rgba(243, 244, 246, 1)" }}>

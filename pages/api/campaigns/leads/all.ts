@@ -1,14 +1,16 @@
 // This file gets the most recent leads
+import { Address, Agent, Campaign, Company, CompanyCampaign, Director } from "@prisma/client";
 import moment from "moment";
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../../../services/prisma";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
+
   const { page, filter } = req.body
   const { age, locations, classifications, address, email, linkedin } = filter;
 
-  const skip = parseInt(page) * 30;
-  const companies = await prisma.company.findMany({
+  const skip: number = parseInt(page) * 30;
+  const companies: (Company & { registeredAddress: (Address & { companies: { id: number; }[]; }) | null; directors: (Director & { contactOwner: Agent | null; })[]; })[] = await prisma.company.findMany({
     where: {
       subscriptionStatus: null,
       refetch: false,

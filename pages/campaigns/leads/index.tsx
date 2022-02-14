@@ -6,23 +6,24 @@ import Axios from 'axios'
 import LeadsMenu from '../../../components/leads/LeadsMenu'
 import LeadsList from '../../../components/leads/LeadsList'
 
+type IFilter = { age: { min: number; max: number; }; locations: []; classifications: []; address: boolean; email: boolean; linkedin: boolean }
+
 const Leads: NextPage = () => {
 
-  const [leads, setLeads]: any = useState([])
-  const [page, setPage] = useState(1)
-  const [filter, setFilter] = useState({ age: { min: 0, max: 99 }, locations: [], classifications: [], address: false, email: false, linkedin: false })
+  const [leads, setLeads]: any = useState<[]>([])
+  const [page, setPage] = useState<number>(1)
+  const [filter, setFilter] = useState<IFilter>({ age: { min: 0, max: 99 }, locations: [], classifications: [], address: false, email: false, linkedin: false })
 
   const getData = async () => {
     const { data } = await Axios.post(`/api/campaigns/leads/all`, { page, filter });
     setLeads(data.companies)
   }
-
   useEffect(() => {
     getData();
   }, [])
 
   const fetchMoreCompanies = async () => {
-    const newPage = page + 1
+    const newPage: number = page + 1
     const { data } = await Axios.post(`/api/campaigns/leads/all`, { page, filter });
     setPage(newPage)
 
@@ -30,8 +31,8 @@ const Leads: NextPage = () => {
   }
 
   const adjustFilter = async (key: any, val: any) => {
-    const newFilter = { ...filter, [key]: val }
-    const newPage = 1
+    const newFilter: IFilter = { ...filter, [key]: val }
+    const newPage: number = 1
     const { data } = await Axios.post(`/api/campaigns/leads/all`, { page: newPage, filter: newFilter });
     setFilter(newFilter)
     setPage(1)

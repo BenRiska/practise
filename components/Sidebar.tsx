@@ -9,7 +9,7 @@ import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 import { useRouter } from "next/router";
 
 
-const Sidebar = ({ menuOpen, setMenuOpen, logout }: any) => {
+const Sidebar: React.FC = ({ menuOpen, setMenuOpen, logout }: any) => {
   let ref = useRef(null);
 
   const { pathname, replace } = useRouter();

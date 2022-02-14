@@ -6,16 +6,16 @@ import getCampaignType from "../../utils/getCampaignType"
 import downloadCsv from '../../utils/downloadCsv';
 
 
-const CampaignMenu = ({ campaign, setCampaign }: any) => {
+const CampaignMenu: React.FC<{ campaign: any, setCampaign: (arg0: any) => void }> = ({ campaign, setCampaign }) => {
 
-  async function downloadLeadList() {
+  async function downloadLeadList(): Promise<void> {
     const { data } = await axios.post(`/api/util/csv`, {
       campaign_id: campaign?.id
     });
     downloadCsv(data);
   }
 
-  const updateCampaignName = async (text: any) => {
+  const updateCampaignName = async (text: any): Promise<void> => {
     const { data } = await axios.post(`/api/util/updateCampaignName`, {
       campaign_id: campaign.id,
       name: text
@@ -32,15 +32,15 @@ const CampaignMenu = ({ campaign, setCampaign }: any) => {
         {campaign?.industries.map((industry: any) => <a href={`https://www.siccode.co.uk/sic2007/code-${industry}`} target="_blank" className='flex text-sm shadow ml-4 bg-gray-100 px-4 h-10 rounded-lg space-x-2 items-center cursor-pointer'>{industry}</a>)}
       </div>
       <div className='flex'>
-        <div className="flex ml-4 h-10 relative items-center px-4 justify-center bg-red-400 w-36 rounded-lg">
+        <div className="flex ml-4 h-10 relative items-center px-4 justify-center bg-red-400 w-36 rounded-lg shadow">
           <span className="absolute text-xs text-red-400 bottom-10 left-0">CAMPAIGN TYPE</span>
           <p className=" text-white">{getCampaignType(campaign?.type)}</p>
         </div>
-        <div className="flex ml-4 h-10 relative items-center px-4 justify-center bg-green-200 w-36 rounded-lg">
+        <div className="flex ml-4 h-10 relative items-center px-4 justify-center bg-green-200 w-36 rounded-lg shadow">
           <span className="absolute text-xs text-green-200 bottom-10 left-0">TOTAL COST</span>
           <p className="text-xl text-white">£{campaign?.campaignCost ? (campaign.campaignCost * campaign._count.companyCampaigns).toFixed(2) : "0"}</p>
         </div>
-        <div className="flex ml-4 h-10 relative items-center px-4 justify-center bg-yellow-300 w-36 rounded-lg">
+        <div className="flex ml-4 h-10 relative items-center px-4 justify-center bg-yellow-300 w-36 rounded-lg shadow">
           <span className="absolute text-xs text-yellow-300 bottom-10 left-0">COST PER ACQUISITION</span>
           <p className="text-xl text-white">£347.34</p>
         </div>

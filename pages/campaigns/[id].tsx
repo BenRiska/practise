@@ -13,16 +13,15 @@ import CampaignCostChart from "../../components/charts/CampaignCostChart"
 const Campaign: NextPage = () => {
   const router = useRouter();
   const { id } = router.query;
-  const [campaign, setCampaign] = useState(null);
-  const [activeFilter, setActiveFilter] = useState("COMPANY_LOCATION")
+  const [campaign, setCampaign] = useState<any>(null);
+  const [activeFilter, setActiveFilter] = useState<string>("COMPANY_LOCATION")
 
   useEffect(() => {
     async function getCampaign() {
-      const data = await Axios.post(`/api/campaigns/get`, {
+      const { data } = await Axios.post(`/api/campaigns/get`, {
         campaign_name: id
       });
-
-      setCampaign(data.data);
+      setCampaign(data);
     }
     getCampaign();
   }, []);
@@ -51,15 +50,12 @@ const Campaign: NextPage = () => {
       </div>
       <div className='flex flex-col justify-between mt-4 w-full'>
         {activeFilter === "COMPANY_LOCATION" && <>
-          {/* @ts-ignore*/}
           <CompanyLocationChart idName="chart2" campaign={campaign?.id} />
         </>}
         {activeFilter === "DIRECTOR_AGE" && <>
-          {/* @ts-ignore*/}
           <DirectorAgeChart idName="chart1" campaign={campaign?.id} />
         </>}
         {activeFilter === "CAMPAIGN_COST" && <>
-          {/* @ts-ignore*/}
           <CampaignCostChart idName="chart3" campaign={campaign?.id} />
         </>}
       </div>

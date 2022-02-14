@@ -1,11 +1,12 @@
 // This file gets a specific campaign
+import { Campaign } from "@prisma/client";
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../../services/prisma";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const { campaign_name }: any = req.body;
+  const { campaign_name }: { campaign_name: string; } = req.body;
 
-  const campaign = await prisma.campaign.findFirst({
+  const campaign: (Campaign & { _count: { companyCampaigns: number; } | null; }) | null = await prisma.campaign.findFirst({
     where: {
       name: campaign_name
     },

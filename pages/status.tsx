@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import StatusChart from '../components/StatusChart'
 
-const Home: NextPage = () => {
+const Status: NextPage = () => {
 
   return (
     <div className='max-w-5xl mx-auto py-4' style={{ minHeight: "100vh" }}>
@@ -20,4 +20,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default Status

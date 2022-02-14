@@ -1,11 +1,12 @@
 // This file takes a list of director id's and returns a csv with their info
+import { Address, Campaign, Company, CompanyCampaign, Director } from "@prisma/client";
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../../services/prisma";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const { campaign_id }: any = req.body;
+  const { campaign_id }: { campaign_id: number } = req.body;
 
-  let companies = await prisma.campaign.findFirst({
+  let companies: (Campaign & { companyCampaigns: (CompanyCampaign & { company: (Company & { registeredAddress: Address | null; directors: Director[]; }) | null; })[]; }) | null = await prisma.campaign.findFirst({
     where: { id: campaign_id },
     include: {
       companyCampaigns: {
@@ -37,8 +38,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   if (directorList?.length > 0) {
     const fields = Object.keys(directorList[0]);
-    const replacer = (key, value) => (value === null ? "" : value);
-    const csv = directorList.map(row =>
+    const replacer = (key: any, value: any) => (value === null ? "" : value);
+    const csv = directorList.map((row: any) =>
       fields
         .map(fieldName => JSON.stringify(row[fieldName], replacer))
         .join(",")

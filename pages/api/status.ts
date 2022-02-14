@@ -3,11 +3,12 @@ import moment from "moment";
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../services/prisma";
 import getServiceName from "../../utils/getServiceName";
+import { Ping, Services } from "@prisma/client";
 
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
 
-  const services = await prisma.services.findMany({
+  const services: (Services & { pings: Ping[]; })[] = await prisma.services.findMany({
     include: {
       pings: {
         where: {
