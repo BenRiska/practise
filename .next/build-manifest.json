@@ -25,15 +25,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/campaigns/leads": [
+    "/campaigns": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/campaigns/leads.js"
+      "static/chunks/pages/campaigns.js"
     ],
-    "/status": [
+    "/campaigns/create": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/status.js"
+      "static/chunks/pages/campaigns/create.js"
     ]
   },
   "ampFirstPages": []
