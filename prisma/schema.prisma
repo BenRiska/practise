@@ -82,6 +82,24 @@ model Campaign {
   duration         CampaignDuration?
   isStannpCampaign Boolean?
   companyCampaigns CompanyCampaign[]
+  lemlistName      String?
+  lemlistId        String?
+  filter           CampaignFilter?
+}
+
+model CampaignFilter {
+  id               Int               @id @default(autoincrement())
+  directorAgeMin   Int?
+  directorAgeMax   Int?
+  companyIncMin    Int?
+  companyIncMax    Int?
+  localities       String[]
+  classifications  String[]
+  emailRequired    Boolean?
+  linkedinRequired Boolean?
+  addressRequired  Boolean?
+  campaign         Campaign?          @relation(fields: [campaignId], references: [id])
+  campaignId       Int?
 }
 
 model CompanyCampaign {
