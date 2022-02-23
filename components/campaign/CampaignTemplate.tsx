@@ -40,7 +40,7 @@ const CampaignCategory = ({ setCampaignState, campaignState, setCurrentSlide }: 
         </div>
       </div>
     </div>
-    <button onClick={() => setCurrentSlide("CAMPAIGN_INDUSTRIES")}>Next</button>
+    <button onClick={() => setCurrentSlide("LEAD_CRITERIA")}>Next</button>
   </div>
 }
 

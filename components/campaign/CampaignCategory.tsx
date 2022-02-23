@@ -12,9 +12,9 @@ const CampaignCategory = ({ setCampaignState, campaignState, setCurrentSlide }: 
         setCurrentSlide("LEAD_CRITERIA")
       }} className={`flex items-center justify-center text-xl ${campaignState.type === "LEMLIST" ? "bg-red-400" : "bg-red-200"}  hover:bg-red-400 rounded-lg w-40 h-12 flex justify-center cursor-pointer`}>Lemlist</div>
       <div onClick={() => {
-        setCampaignState({ ...campaignState, type: "MAIL" })
+        setCampaignState({ ...campaignState, type: "DIRECT_MAIL" })
         setCurrentSlide("CAMPAIGN_TEMPLATE")
-      }} className={`flex items-center justify-center text-xl ${campaignState.type === "MAIL" ? "bg-red-400" : "bg-red-200"}  hover:bg-red-400 rounded-lg w-40 h-12 flex justify-center cursor-pointer`}>Mail</div>
+      }} className={`flex items-center justify-center text-xl ${campaignState.type === "DIRECT_MAIL" ? "bg-red-400" : "bg-red-200"}  hover:bg-red-400 rounded-lg w-40 h-12 flex justify-center cursor-pointer`}>Mail</div>
     </div>
   </div>
 }
