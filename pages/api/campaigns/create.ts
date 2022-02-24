@@ -56,8 +56,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (type === "DIRECT_MAIL") {
     await axios.post(`${process.env.API_URL}/mail/create-and-send`, {
       filters: { ...campaignState.leadFilters, take: 1 },
-      campaign,
-      template
+      campaign
     });
   }
 
