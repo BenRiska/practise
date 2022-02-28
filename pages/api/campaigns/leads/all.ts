@@ -7,7 +7,8 @@ import prisma from "../../../../services/prisma";
 export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   const { page, filter } = req.body
-  const { age, locations, classifications, address, email, linkedin } = filter;
+
+  const { age, locations, classifications, address, email, linkedin, take } = filter;
 
   const skip: number = parseInt(page) * 30;
   const companies: (Company & { registeredAddress: (Address & { companies: { id: number; }[]; }) | null; directors: (Director & { contactOwner: Agent | null; })[]; })[] = await prisma.company.findMany({
@@ -75,7 +76,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       id: "desc"
     },
     skip,
-    take: 30
+    take: take > 0 ? take : 30
   });
 
   res.json({ companies });

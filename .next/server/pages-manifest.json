@@ -1,7 +1,5 @@
 {
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
-  "/_error": "pages/_error.js",
-  "/api/mail/create-and-send": "pages/api/mail/create-and-send.js",
-  "/api/campaigns/create": "pages/api/campaigns/create.js"
+  "/_error": "pages/_error.js"
 }

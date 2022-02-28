@@ -8,7 +8,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   // find free agent
   let agents = await prisma.agent.findMany({
     where: {
-      currentlyScanning: false,
+      currentlyScanning: true,
       email: { not: null }
     }
   });
@@ -63,7 +63,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     if (directors.length === 0) throw "Error";
 
     await agents.forEach(async (agent, i) => {
-
+      console.log({ agent, director: directors[i] })
       // execute phantombot
       let userData = await axios.post(`${process.env.API_URL}/phantombuster/search`, {
         method: "POST",

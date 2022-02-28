@@ -8,9 +8,11 @@ const LeadsMenu = ({ filter, adjustFilter }: any) => {
   const [ageMenuOpen, setAgeMenuOpen] = useState(false)
   const [locationMenuOpen, setLocationMenuOpen] = useState(false)
   const [classMenuOpen, setClassMenuOpen] = useState(false)
+  const [amountMenuOpen, setAmountMenuOpen] = useState(false)
   const [requiredMenuOpen, setRequiredMenuOpen] = useState(false)
   const [locationInput, setLocationInput] = useState("")
   const [classInput, setClassInput] = useState("")
+  const [amountInput, setAmountInput] = useState(0)
 
   const handleLocationInput = (e: any) => {
     if (e.key === "Enter") {
@@ -30,9 +32,17 @@ const LeadsMenu = ({ filter, adjustFilter }: any) => {
     }
   }
 
+  const handleAmountInput = (e: any) => {
 
-  return <div style={{ marginTop: 64 }} className="shadow fixed top-0 left-0 right-0 w-screen z-20 bg-white">
-    <div style={{ maxWidth: 1085 }} className="mx-auto flex items-center space-x-2">
+    if (e.key === "Enter") {
+      adjustFilter("take", amountInput);
+      setAmountInput(0);
+    }
+  }
+
+
+  return <div style={{ marginTop: 64 }} className="shadow bg-white">
+    <div className="mx-auto flex items-center space-x-2">
       <div onClick={() => setAgeMenuOpen(true)} className="p-4 relative flex space-x-1.5 items-center cursor-pointer">
         <p>Age</p>
         <ArrowDropDownIcon />
@@ -81,6 +91,15 @@ const LeadsMenu = ({ filter, adjustFilter }: any) => {
             <input onChange={() => adjustFilter("email", !filter.email)} type="checkbox" checked={filter.email} />
             <h2>Linkedin</h2>
             <input onChange={() => adjustFilter("linkedin", !filter.linkedin)} type="checkbox" checked={filter.linkedin} />
+          </Popup>
+        }
+      </div>
+      <div onClick={() => setAmountMenuOpen(true)} className="p-4 relative flex space-x-1.5 items-cente cursor-pointer">
+        <p>Amount</p>
+        <ArrowDropDownIcon />
+        {amountMenuOpen &&
+          <Popup setPopupOpen={setAmountMenuOpen} style={{ bottom: -50, width: 200 }} className={'absolute h-12 bottom-0 flex flex-col left-0 right-0 rounded-md shadow z-30 bg-white'}>
+            <input className='shadow rounded text-2xl outline-red-400 h-12' value={amountInput.toString()} onChange={e => { if (e.currentTarget.value.length === 0) { setAmountInput(0); return } setAmountInput(parseInt(e.currentTarget.value)) }} onKeyPress={e => handleAmountInput(e)} type="text" />
           </Popup>
         }
       </div>

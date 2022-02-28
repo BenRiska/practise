@@ -3,7 +3,7 @@ import title from "title";
 import map from "../../utils/sic-map.json";
 
 const LeadsList = ({ leads }: any) => {
-    return <div className="mx-auto mt-12 shadow">
+    return <div className="mx-auto mt-12 w-full shadow">
         <div style={{ borderBottom: "1px solid rgba(243, 244, 246, 1)" }} className="flex px-4 py-6 items-center">
             <div style={{ flex: 0.07 }} />
             <div style={{ flex: 0.3 }} className="">Company</div>

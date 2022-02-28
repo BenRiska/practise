@@ -63,6 +63,8 @@ const enrichLI = async (req: NextApiRequest, res: NextApiResponse) => {
 
     // get results
 
+    console.log("firing pb")
+
     const {
       data: { data }
     } = await axios.post(
@@ -83,6 +85,8 @@ const enrichLI = async (req: NextApiRequest, res: NextApiResponse) => {
       options
     );
     // setServiceStatus("PHANTOMBUSTER", "UP");
+
+    console.log({ data })
 
     // update director accordingly
     let updatedDirector;
