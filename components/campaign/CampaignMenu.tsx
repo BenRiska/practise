@@ -12,6 +12,7 @@ const CampaignMenu: React.FC<{ campaign: any, setCampaign: (arg0: any) => void }
     const { data } = await axios.post(`/api/util/csv`, {
       campaign_id: campaign?.id
     });
+
     downloadCsv(data);
   }
 

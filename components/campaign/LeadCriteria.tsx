@@ -37,6 +37,10 @@ const LeadCriteria = ({ setCampaignState, campaignState, setCurrentSlide }: any)
         </div>}
       </div>
     </div>
+    <div>
+      <h2>Reach</h2>
+      <input type="number" value={campaignState.take} onChange={(e) => setCampaignState({ ...campaignState, take: e.currentTarget.value })} />
+    </div>
     <button onClick={() => setCurrentSlide("CAMPAIGN_INDUSTRIES")}>Next</button>
   </div>
 }

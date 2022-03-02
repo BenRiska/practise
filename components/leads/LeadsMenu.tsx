@@ -1,9 +1,12 @@
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Popup from '../Popup';
 import { useState } from "react"
+import RestartAltIcon from '@mui/icons-material/RestartAlt';
+import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 
 
-const LeadsMenu = ({ filter, adjustFilter }: any) => {
+
+const LeadsMenu = ({ filter, adjustFilter, resetFilter, downloadPdf }: any) => {
 
   const [ageMenuOpen, setAgeMenuOpen] = useState(false)
   const [locationMenuOpen, setLocationMenuOpen] = useState(false)
@@ -102,6 +105,14 @@ const LeadsMenu = ({ filter, adjustFilter }: any) => {
             <input className='shadow rounded text-2xl outline-red-400 h-12' value={amountInput.toString()} onChange={e => { if (e.currentTarget.value.length === 0) { setAmountInput(0); return } setAmountInput(parseInt(e.currentTarget.value)) }} onKeyPress={e => handleAmountInput(e)} type="text" />
           </Popup>
         }
+      </div>
+      <div className='justify-self-end flex space-x-4'>
+        <div onClick={resetFilter} className='cursor-pointer'>
+          <RestartAltIcon />
+        </div>
+        <div onClick={downloadPdf} className='cursor-pointer'>
+          <CloudDownloadIcon />
+        </div>
       </div>
     </div>
   </div>
