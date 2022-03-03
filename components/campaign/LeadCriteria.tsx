@@ -1,17 +1,17 @@
 const LeadCriteria = ({ setCampaignState, campaignState, setCurrentSlide }: any) => {
-  return <div className="border-red-200 hover:border-red-400 mt-8 border-2 rounded p-8 flex flex-col items-center py-20">
-    <h2 className="flex text-3xl">
+  return <div className="    py-8 flex flex-col  ">
+    <h2 className="flex text-2xl">
       <p className="border-red-400 flex align-center rounded-full border-2 h-8 w-8 mr-4">
         <span className="w-full flex items-center justify-center text-base">2</span>
       </p>
       Lead Criteria
     </h2>
-    <div className='flex justify-evenly mt-4 space-x-4'>
-      <div className='flex-1 space-y-4'>
+    <div className='flex flex-col justify-evenly mt-4 space-y-4'>
+      <div className='ml-0'>
         <input className='outline-red-400' placeholder='Director Age (min)' onChange={e => setCampaignState({ ...campaignState, leadFilters: { ...campaignState.leadFilters, ageRange: { ...campaignState.leadFilters.ageRange, min: e.currentTarget.value } } })} value={campaignState.leadFilters.ageRange.min} type="number" />
         <input className='outline-red-400' placeholder='Director Age (max)' onChange={e => setCampaignState({ ...campaignState, leadFilters: { ...campaignState.leadFilters, ageRange: { ...campaignState.leadFilters.ageRange, max: e.currentTarget.value } } })} value={campaignState.leadFilters.ageRange.max} type="number" />
       </div>
-      <div className='flex-1 space-y-4'>
+      <div className='ml-0'>
         <input className='outline-red-400' placeholder='Company Age (min)' onChange={e => setCampaignState({ ...campaignState, leadFilters: { ...campaignState.leadFilters, companyAge: { ...campaignState.leadFilters.companyAge, min: e.currentTarget.value } } })} value={campaignState.leadFilters.companyAge.min} type="number" />
         <input className='outline-red-400' placeholder='Company Age (max)' onChange={e => setCampaignState({ ...campaignState, leadFilters: { ...campaignState.leadFilters, companyAge: { ...campaignState.leadFilters.companyAge, max: e.currentTarget.value } } })} value={campaignState.leadFilters.companyAge.max} type="number" />
       </div>
@@ -37,9 +37,9 @@ const LeadCriteria = ({ setCampaignState, campaignState, setCurrentSlide }: any)
         </div>}
       </div>
     </div>
-    <div>
+    <div className="mt-4">
       <h2>Reach</h2>
-      <input type="number" value={campaignState.take} onChange={(e) => setCampaignState({ ...campaignState, take: e.currentTarget.value })} />
+      <input placeholder="Reach.." type="number" value={campaignState.take} onChange={(e) => setCampaignState({ ...campaignState, take: e.currentTarget.value })} />
     </div>
     <button onClick={() => setCurrentSlide("CAMPAIGN_INDUSTRIES")}>Next</button>
   </div>

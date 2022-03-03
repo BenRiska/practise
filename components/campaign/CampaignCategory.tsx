@@ -1,6 +1,6 @@
 const CampaignCategory = ({ setCampaignState, campaignState, setCurrentSlide }: any) => {
-  return <div className="border-red-200 hover:border-red-400 mt-4 border-2 rounded p-8 flex flex-col items-center py-20">
-    <h2 className="flex text-3xl">
+  return <div className="  mt-4  rounded flex flex-col py-8">
+    <h2 className="flex text-2xl">
       <p className="border-red-400 flex align-center rounded-full border-2 h-8 w-8 mr-4">
         <span className="w-full flex items-center justify-center text-base">1</span>
       </p>
